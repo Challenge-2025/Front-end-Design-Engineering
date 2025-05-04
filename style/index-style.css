@@ -18,6 +18,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 1px solid #D9D9D9;
 }
 .cabeca .countainer-img{
     width: 96%;
@@ -35,8 +36,9 @@ body {
     text-decoration: none;
 }
 .cabeca .input{
+    width: 250px;
+    height: 35px;
     align-items: center;
-    height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
