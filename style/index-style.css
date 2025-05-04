@@ -62,16 +62,34 @@ body {
 .cabeca .input .btn-pesquisa img{
     border: none;
 }
-.countainer span{
+.container{
+    width: 15%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 18px;
+    margin: 26px;
+}
+.container .btn-menu-sanduiche {
+    height: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 4px;
     flex-direction: column;
+    cursor: pointer;
 }
-.countainer span .menu-sanduiche{
-    background-color: #070249;
+
+.menu-sanduiche {
+    width: 25px;
+    height: 3px;
     border-radius: 50px;
     border: 2px solid #000;
-    width: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    
 }
