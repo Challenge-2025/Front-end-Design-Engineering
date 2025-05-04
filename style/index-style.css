@@ -65,38 +65,50 @@ body {
 .cabeca .input .btn-pesquisa img{
     border: none;
 }
-.container{
-    width: 15%;
+.countainer{
+    width: 17%;
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-wrap: nowrap;
     flex-direction: row;
-    gap: 18px;
+    gap: 13px;
     margin: 26px;
 }
-.container .btn-menu-sanduiche {
+.countainer .btn-menu-sanduiche {
+    position:static;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    
+}
+.countainer .btn-menu-sanduiche:hover{
+    padding: 10px 10px 10px 10px;
+    background-color: #c50d35;
+    border-radius: 50px;
+}
+.countainer .btn-menu-sanduiche span{
     height: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 4px;
     flex-direction: column;
-    cursor: pointer;
 }
-
+.countainer
 .menu-sanduiche {
-    width: 25px;
-    height: 3px;
+    width: 22px;
+    height: 1px;
     border-radius: 50px;
     border: 2px solid #000;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-    
+    background-color: #000;
 }
-
 /* botão ajuda */
 .ajuda{
     position: fixed;
