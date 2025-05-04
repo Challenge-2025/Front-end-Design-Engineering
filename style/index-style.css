@@ -1,13 +1,14 @@
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #A9A9A9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #A9A9A9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
 }
 .cabeca {
     width: 97%;
@@ -94,4 +95,24 @@ body {
     flex-wrap: nowrap;
     flex-direction: row;
     
+}
+
+/* botão ajuda */
+.ajuda{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    bottom: 0;
+    margin: 0 20px 20px 0;
+}
+.ajuda .btn-ajuda{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px;
+    background-color: #201F1F;
+    border-radius: 100px;
 }
