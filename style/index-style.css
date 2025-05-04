@@ -62,3 +62,16 @@ body {
 .cabeca .input .btn-pesquisa img{
     border: none;
 }
+.countainer span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    flex-direction: column;
+}
+.countainer span .menu-sanduiche{
+    background-color: #070249;
+    border-radius: 50px;
+    border: 2px solid #000;
+    width: 20px;
+}
