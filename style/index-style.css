@@ -37,6 +37,26 @@ body {
 .cabeca .countainer-img a{
     text-decoration: none;
 }
+
+.cabeca .countainer-link{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cabeca .countainer-link ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    list-style: none;
+    gap: 30px;
+}
+.cabeca .countainer-link ul li a{
+    color: #D9D9D9;
+    text-decoration: none;
+    font-size: 18px;
+}
 .cabeca .input{
     width: 250px;
     height: 35px;
@@ -67,21 +87,21 @@ body {
     border: none;
 }
 .countainer{
-    width: 17%;
+    width: 23%;
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-wrap: nowrap;
     flex-direction: row;
-    gap: 13px;
+    gap: 11px;
     margin: 26px;
 }
 .menu{
     width: 369px;
     height: 100vh;
     background-color: #da1641;
-    display: flex;
+    display: none;
     justify-content: baseline;
     border-radius: 25px;
     position: absolute;
@@ -91,7 +111,7 @@ body {
 .menu ul{
     width: 80%;
     margin: 20px;
-    margin-top: 30px;
+    margin-top: 35px;
     margin-left: 10px;
     display: flex;
     flex-wrap: nowrap;
@@ -162,4 +182,11 @@ body {
     padding: 10px;
     background-color: #201F1F;
     border-radius: 100px;
+}
+.btn-fechar-menu{
+    width: 55px;
+    height: 55px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
