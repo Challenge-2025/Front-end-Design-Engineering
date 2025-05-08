@@ -15,19 +15,22 @@ body {
 /* iniciando header */
 
 .cabeca {
-    width: 100%;
+    width: 94%;
     height: 106px;
-    background-color: #820980;
-    display: flex;
+    /* background-color: #820980; */
+    display: flex
+;
     justify-content: center;
     align-items: center;
-
+    border-bottom: 2px solid #A9A9A9;
 }
 .cabeca .countainer-header{
     width: 99%;
+    height: 20vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 .cabeca .countainer-img a{
     text-decoration: none;
@@ -45,12 +48,17 @@ body {
     align-items: center;
     text-align: center;
     list-style: none;
-    gap: 30px;
+    gap: 35px;
 }
 .cabeca .countainer-link ul li a{
     color: #D9D9D9;
     text-decoration: none;
     font-size: 18px;
+    transition: all 0.35s ease;
+}
+.cabeca .countainer-link ul li a:hover{
+    font-size: 19px;
+    color: #3B2E41;
 }
 .cabeca .input{
     width: 250px;
@@ -83,7 +91,7 @@ body {
     border: none;
 }
 .countainer{
-    width: 24%;
+    width: 26%;
     height: 60px;
     display: flex;
     align-items: center;
@@ -91,19 +99,30 @@ body {
     flex-wrap: nowrap;
     flex-direction: row;
     gap: 11px;
-    margin: 26px;
 }
-.menu{
-    width: 369px;
-    height: 100vh;
-    background-color: #da1641;
-    display: none;
-    justify-content: baseline;
-    border-radius: 25px;
+.menu {
+    width: 256px;
+    height: 80vh;
+    /* background-color: #902AC0; */
+    background: linear-gradient(-139deg, #902AC0 50%, #a153c5 66%);
+    border-radius: 10px;
     position: absolute;
     right: 0;
     top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
 }
+.menu.mostrando {
+    transform: translateX(0);
+    opacity: 1;
+    display: flex;
+    flex-direction: row;
+}
+  
 .menu ul{
     width: 80%;
     margin: 20px;
@@ -126,6 +145,11 @@ body {
 .menu ul li a{
     text-decoration: none;
     color: #D9D9D9;
+    transition: all 0.35s ease;
+}
+.menu ul li a:hover{
+    color: #3B2E41;
+
 }
 .countainer .btn-menu-sanduiche {
     position:static;
@@ -155,11 +179,11 @@ body {
     width: 22px;
     height: 1px;
     border-radius: 50px;
-    border: 2px solid #838183;
+    border: 2px solid #3B2E41;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-    background-color: #838183;
+    background-color: #3B2E41;
 }
 
 .btn-fechar-menu{
@@ -188,7 +212,7 @@ body {
     align-items: center;
     text-decoration: none;
     padding: 10px;
-    background-color: #201F1F;
+    background-color: #3B2E41;
     border-radius: 100px;
 }
 
