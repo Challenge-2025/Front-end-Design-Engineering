@@ -101,14 +101,14 @@ body {
 }
 
 .cabeca .input{
-    height: 35px;
+    height: 30px;
     align-items: center;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #400759;
     border-radius: 50px;
-    /* position:fixed; */
+    padding: 4px;
 }
 .cabeca .input .pesquisa{
     padding: 0;
@@ -119,8 +119,7 @@ body {
     background: none;
     outline: none;
     font-size: 15px;
-    color: #5C3B6B;
-    padding-left: 5px;
+    color: #5C3B6B; 
     font-size: 15.5px;
     transition: all 0.4s ease;
 }
@@ -133,11 +132,13 @@ body {
     font-weight: bold;
 }
 .cabeca .input .btn-pesquisa{
+    width: 30px;
+    height: 30px;
     background: none;
     border: none;
     margin: 0;
     border-radius: 50px;
-    padding: 8px;
+    /* padding-right: 8px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -154,7 +155,7 @@ body {
     justify-content: end;
     flex-wrap: nowrap;
     flex-direction: row;
-    gap: 0;
+    gap: 8px;
 }
 .menu {
     width: 256px;
@@ -163,7 +164,7 @@ body {
     background: linear-gradient(-139deg, #902AC0 50%, #a153c5 66%);
     border-radius: 10px;
     position: absolute;
-    right: 0;
+    right: 20px;
     top: 20px;
     display: flex;
     flex-direction: row;
@@ -178,7 +179,7 @@ body {
     display: flex;
     flex-direction: row;
 }
-  
+
 .menu ul{
     width: 80%;
     margin: 20px;
@@ -205,20 +206,23 @@ body {
 }
 .menu ul li a:hover{
     color: #3B2E41;
-
 }
+.login-cadastro-menu{
+    display: none;
+}
+
 .countainer .btn-menu-sanduiche {
-    position:static;
-    width: 50px;
-    height: 50px;
+    position:static;    
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     border: none;
     background: none;
-    
+    /* transform: rotate(90deg); */
 }
 .countainer .btn-menu-sanduiche:hover{
     padding: 4px;
-    background-color: #902AC0;;
+    background-color: #793996;;
     border-radius: 100px;
 }
 
@@ -241,8 +245,6 @@ body {
     flex-direction: row;
     background-color: #510369;
 }
-
-
 
 .btn-fechar-menu{
     width: 55px;
@@ -326,6 +328,36 @@ main{
     width: 100%;
     font-size: 17px;
 }
-.sobre img{
-    
+
+.localizacao{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+.input-cep{
+    background-color: #3B2E41;
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 50px;
+}
+.input-cep .cep{
+    border: none;
+    background: none;
+    outline: none;
+    font-family: 10px;
+}
+.input-cep .cep::placeholder{
+    color: #5C3B6B;
+}
+iframe{
+    width: 70%;
+    height: 80vh;
 }
