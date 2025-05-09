@@ -18,8 +18,7 @@ body {
     width: 94%;
     height: 106px;
     /* background-color: #820980; */
-    display: flex
-;
+    display: flex;
     justify-content: center;
     align-items: center;
     border-bottom: 2px solid #A9A9A9;
@@ -37,10 +36,10 @@ body {
 }
 
 .cabeca .countainer-link{
-    width: 40%;
+    width: 59%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: center
 }
 .cabeca .countainer-link ul{
     display: flex;
@@ -48,57 +47,114 @@ body {
     align-items: center;
     text-align: center;
     list-style: none;
-    gap: 35px;
+    gap: 55px;
 }
 .cabeca .countainer-link ul li a{
     color: #D9D9D9;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
     transition: all 0.35s ease;
 }
 .cabeca .countainer-link ul li a:hover{
-    font-size: 19px;
+    font-size: 22px;
     color: #3B2E41;
 }
+.cadastro-login{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cadastro-login ul{
+    display: flex;
+    list-style: none;
+    justify-content:flex-start;
+    align-items: center;
+    gap: 20px;
+}
+.cadastro-login ul li a{
+    color: #D9D9D9;
+    text-decoration: none;
+    font-size: 21px;
+}
+.login{
+    padding: 7px 30px;
+    background-color: #793996;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+}
+.login:hover{
+    color: #793996;
+    background: none;
+    border: 1px solid #793996;
+}
+.cadastro{
+    padding: 7px 25px;
+    background-color: #931896;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+}
+.cadastro:hover{
+    color: #931896;
+    background: none;
+    border: 1px solid #931896;
+}
+
 .cabeca .input{
-    width: 250px;
     height: 35px;
     align-items: center;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    background-color: #D9D9D9;
+    background-color: #400759;
     border-radius: 50px;
-    border: 2px solid #3d0358;
+    /* position:fixed; */
 }
 .cabeca .input .pesquisa{
-    width: 200px;
+    padding: 0;
+    width: 0px;
     height: 30px;
     border-radius: 20px;
     border: none;
     background: none;
     outline: none;
     font-size: 15px;
-    color: #070249;
+    color: #5C3B6B;
+    padding-left: 5px;
+    font-size: 15.5px;
+    transition: all 0.4s ease;
+}
+
+.cabeca .input:hover > .pesquisa {
+    width: 150px;
+}
+
+.cabeca .input .pesquisa::placeholder{
+    font-weight: bold;
 }
 .cabeca .input .btn-pesquisa{
     background: none;
     border: none;
     margin: 0;
     border-radius: 50px;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .cabeca .input .btn-pesquisa img{
     border: none;
 }
+
 .countainer{
     width: 26%;
     height: 60px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: end;
     flex-wrap: nowrap;
     flex-direction: row;
-    gap: 11px;
+    gap: 0;
 }
 .menu {
     width: 256px;
@@ -161,7 +217,7 @@ body {
     
 }
 .countainer .btn-menu-sanduiche:hover{
-    padding: 10px 10px 10px 10px;
+    padding: 4px;
     background-color: #902AC0;;
     border-radius: 100px;
 }
@@ -179,12 +235,14 @@ body {
     width: 22px;
     height: 1px;
     border-radius: 50px;
-    border: 2px solid #3B2E41;
+    border: 2px solid #510369;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-    background-color: #3B2E41;
+    background-color: #510369;
 }
+
+
 
 .btn-fechar-menu{
     width: 55px;
