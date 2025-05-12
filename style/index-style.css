@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #A9A9A9;
     background: linear-gradient(139deg, rgba(69, 13, 115, 1) 0%, rgba(233, 159, 237, 1) 52%, rgba(247, 242, 247, 1) 98%);
     display: flex;
@@ -17,9 +17,7 @@ body {
 .cabeca {
     width: 94%;
     height: 106px;
-    /* background-color: #820980; */
-    display: flex
-;
+    display: flex;
     justify-content: center;
     align-items: center;
     border-bottom: 2px solid #A9A9A9;
@@ -37,10 +35,10 @@ body {
 }
 
 .cabeca .countainer-link{
-    width: 40%;
+    width: 59%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: center
 }
 .cabeca .countainer-link ul{
     display: flex;
@@ -48,68 +46,124 @@ body {
     align-items: center;
     text-align: center;
     list-style: none;
-    gap: 35px;
+    gap: 55px;
 }
 .cabeca .countainer-link ul li a{
     color: #D9D9D9;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
     transition: all 0.35s ease;
 }
 .cabeca .countainer-link ul li a:hover{
-    font-size: 19px;
+    font-size: 22px;
     color: #3B2E41;
 }
+.cadastro-login{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cadastro-login ul{
+    display: flex;
+    list-style: none;
+    justify-content:flex-start;
+    align-items: center;
+    gap: 20px;
+}
+.cadastro-login ul li a{
+    color: #D9D9D9;
+    text-decoration: none;
+    font-size: 21px;
+}
+.login{
+    padding: 7px 30px;
+    background-color: #793996;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+}
+.login:hover{
+    color: #793996;
+    background: none;
+    border: 1px solid #793996;
+}
+.cadastro{
+    padding: 7px 25px;
+    background-color: #931896;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+}
+.cadastro:hover{
+    color: #931896;
+    background: none;
+    border: 1px solid #931896;
+}
+
 .cabeca .input{
-    width: 250px;
-    height: 35px;
+    height: 30px;
     align-items: center;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    background-color: #D9D9D9;
+    background-color: #400759;
     border-radius: 50px;
-    border: 2px solid #3d0358;
+    padding: 4px;
 }
 .cabeca .input .pesquisa{
-    width: 200px;
+    padding: 0;
+    width: 0px;
     height: 30px;
     border-radius: 20px;
     border: none;
     background: none;
     outline: none;
     font-size: 15px;
-    color: #070249;
+    color: #5C3B6B; 
+    font-size: 15.5px;
+    transition: all 0.4s ease;
+}
+
+.cabeca .input:hover > .pesquisa {
+    width: 150px;
+}
+
+.cabeca .input .pesquisa::placeholder{
+    font-weight: bold;
 }
 .cabeca .input .btn-pesquisa{
+    width: 30px;
+    height: 30px;
     background: none;
     border: none;
     margin: 0;
     border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .cabeca .input .btn-pesquisa img{
     border: none;
 }
+
 .countainer{
     width: 26%;
     height: 60px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: end;
     flex-wrap: nowrap;
     flex-direction: row;
-    gap: 11px;
+    gap: 8px;
 }
 .menu {
     width: 256px;
     height: 80vh;
-    /* background-color: #902AC0; */
     background: linear-gradient(-139deg, #902AC0 50%, #a153c5 66%);
     border-radius: 10px;
     position: absolute;
-    right: 0;
+    right: 20px;
     top: 20px;
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: baseline;
     transform: translateX(100%);
@@ -122,7 +176,7 @@ body {
     display: flex;
     flex-direction: row;
 }
-  
+
 .menu ul{
     width: 80%;
     margin: 20px;
@@ -149,20 +203,23 @@ body {
 }
 .menu ul li a:hover{
     color: #3B2E41;
-
 }
+.login-cadastro-menu{
+    display: none;
+}
+
 .countainer .btn-menu-sanduiche {
-    position:static;
-    width: 50px;
-    height: 50px;
+    position:static;    
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     border: none;
     background: none;
-    
+    /* transform: rotate(90deg); */
 }
 .countainer .btn-menu-sanduiche:hover{
-    padding: 10px 10px 10px 10px;
-    background-color: #902AC0;;
+    padding: 4px;
+    background-color: #793996;;
     border-radius: 100px;
 }
 
@@ -179,11 +236,11 @@ body {
     width: 22px;
     height: 1px;
     border-radius: 50px;
-    border: 2px solid #3B2E41;
+    border: 2px solid #510369;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-    background-color: #3B2E41;
+    background-color: #510369;
 }
 
 .btn-fechar-menu{
@@ -268,6 +325,127 @@ main{
     width: 100%;
     font-size: 17px;
 }
-.sobre img{
-    
+
+.localizacao{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+.countainer-loc{
+    width: 90%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.input-cep{
+    background-color: #3B2E41;
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 50px;
+}
+.input-cep .cep{
+    border: none;
+    background: none;
+    outline: none;
+    color: #D9D9D9;
+}
+.input-cep .cep::placeholder{
+    color: #5C3B6B;
+}
+iframe{
+    width: 70%;
+    height: 80vh;
+}
+
+.avaliacoes{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.countainer-avaliacoes{
+    width: 70%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.box-avaliacoes{
+    width: 340px;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-align: center;
+    border: 2px solid #510369   ;
+    background-color: #902AC0;
+    border-radius: 20px;
+}
+.box-avaliacoes p{
+    width: 80%;
+    font-size: 17px;
+}
+.box-avaliacoes section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.foto-paciente{
+    border-radius: 100px;
+}
+.paciente-1{
+    width: 300px;
+    height: 60vh;
+}
+.paciente-1 p{
+    width: 70%;
+    font-size: 14px;
+}
+.paciente-1 section{
+    height: 6vh;
+}
+.paciente-1 section img{
+    width: 40px;
+    height: 40px;
+}
+.paciente-3{
+    width: 300px;
+    height: 60vh;
+}
+.paciente-3 p{
+    width: 70%;
+    font-size: 14px;
+}
+.paciente-3 section{
+    height: 6vh;
+}
+.paciente-3 section img{
+    width: 40px;
+    height: 40px;
+}
+.countainer-slide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

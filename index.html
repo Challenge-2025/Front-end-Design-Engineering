@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style/index-style.css" />
-
+    <title>Reabilita Mais</title>
   </head>
   <body>
     <header class="cabeca">
@@ -12,18 +12,25 @@
           <a href="./index.html">
             <img src="./img/logo-branca-reabilita-sem-fundo.png" alt="Logo Reabilita+" width="90px" height="90px">
           </a>
-          <article class="countainer-link">
+          <nav class="countainer-link">
             <ul>
               <li><a href="#">Inicio</a></li>
               <li><a href="#Sobre">Sobre</a></li>
+              <li><a href="#localizacao">Localizacao</a></li>
               <li><a href="#">Fale conosco</a></li>   
           </ul>
-          </article>
+          </nav>
+          <nav class="cadastro-login">
+              <ul>
+                <li><a href="#" class="login">Login</a></li>
+                <li><a href="#" class="cadastro">Cadastro</a></li>
+              </ul>
+            </nav>
           <article class="countainer">     
             <section class="input">
-              <input type="text" placeholder="" class="pesquisa"/>
+              <input type="text" placeholder="Busca" class="pesquisa"/>
               <a href="#" class="btn-pesquisa">
-                <img src="./img/search.png" alt="pesquisar" width="30px" height="30px">
+                <img src="./img/search.png" alt="pesquisar" width="22px" height="22px">
               </a>
             </section>
             <button class="btn-menu-sanduiche">
@@ -38,15 +45,17 @@
       
     </header>
 
-    <div class="menu">
+    <nav class="menu">
       
       <ul>
         <li><a href="#">Inicio</a></li>
         <li><a href="#">Fale conosco</a></li>
+        <li><a href="#" class="login-cadastro-menu">Login</a></li>
+        <li><a href="#" class="login-cadastro-menu">Cadastro</a></li>
         <li><a href="#">FAQ</a></li>
       </ul>
       <button class="btn-fechar-menu"><img src="./img/icons8-x-50.png" alt="Fechar menu" width="25px" height="25px"></button>
-    </div>
+    </nav>
 
     <article class="ajuda">
       <a href="#" class="btn-ajuda">
@@ -55,7 +64,7 @@
     </article>
 
     <main>
-      <article class="sobre" id="Sobre">
+      <article class="sobre" id="sobre">
         
 
         <img src="./img/img-doutora.png" alt="Imagem de doutora olhando para a câmera" class="img-doutora" width="380px" height="520px">
@@ -74,6 +83,53 @@
         
       </article>
     </main>
+
+    <article class="localizacao" id="localizacao">
+      <section class="countainer-loc">
+        <div class="input-cep">
+        <input type="text" placeholder="Digite seu CEP" class="cep">
+      </div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d467690.14386865456!2d-46.92495573160536!3d-23.682063556622076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce448183a461d1%3A0x9ba94b08ff335bae!2zU8OjbyBQYXVsbywgU1A!5e0!3m2!1spt-BR!2sbr!4v1746765966396!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </section>
+    </article>
+
+    <article class="fale-conosco" id="fale-conosco">
+      
+    </article>
+
+    <article class="avaliacoes">
+      <section class="countainer-avaliacoes">
+      <div class="box-avaliacoes paciente-1">
+        <section>
+        <img src="./img/perfil1.png" class="foto-paciente" alt="foto de parfil do paciente" width="45px" height="45px">
+        <p class="nome-paciente"> José Cristiano Andrare .M</p>
+      </section>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi harum nostrum tempora, iste tenetur beatae id recusandae, vero autem veniam vitae odit dicta, odio officiis doloribus! Excepturi tenetur, repellat atque, repudiandae tempora in possimus quod reiciendis nesciunt harum fugiat sit inventore! Vero magnam, expedita repudiandae adipisci rem quisquam facere nesciunt.</p>
+      </div>
+      <div class="box-avaliacoes paciente-2">
+        <section>
+        <img src="./img/perfil2.png" class="foto-paciente" alt="foto de parfil do paciente" width="45px" height="45px">
+        <p class="nome-paciente"> Marina Alves de Jesus</p>
+      </section>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi harum nostrum tempora, iste tenetur beatae id recusandae, vero autem veniam vitae odit dicta, odio officiis doloribus! Excepturi tenetur, repellat atque, repudiandae tempora in possimus quod reiciendis nesciunt harum fugiat sit inventore! Vero magnam, expedita repudiandae adipisci rem quisquam facere nesciunt.</p>
+      </div>
+      <div class="box-avaliacoes paciente-3">
+        <section>
+        <img src="./img/perfil3.png" class="foto-paciente" alt="foto de parfil do paciente" width="45px" height="45px">
+        <p class="nome-paciente">Eduardo Roberto Valente </p>
+      </section>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi harum nostrum tempora, iste tenetur beatae id recusandae, vero autem veniam vitae odit dicta, odio officiis doloribus! Excepturi tenetur, repellat atque, repudiandae tempora in possimus quod reiciendis nesciunt harum fugiat sit inventore! Vero magnam, expedita repudiandae adipisci rem quisquam facere nesciunt.</p>
+      </div>
+      </section>
+      <article class="countainer-slide">
+        <form action="">
+          <input type="radio" class="slide">
+          <input type="radio" class="slide">
+          <input type="radio" class="slide"> 
+        </form>
+      </article>
+       
+    </article>
     <script src="./script/script.js"></script>
   </body>
 </html>
