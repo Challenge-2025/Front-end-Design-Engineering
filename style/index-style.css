@@ -597,6 +597,15 @@ iframe{
         height: auto;
         padding: 1rem;
     }
+    .foto-paciente{
+        border-radius: 100%;
+    }
+
+
+    .slide{
+        display: none;
+    }
+
 
     .rodape {
         font-size: 1rem;
