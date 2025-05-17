@@ -276,7 +276,7 @@ body {
 /*fechando botão ajuda*/
 
 
-/**/
+/*Top-button*/
 .top{
     position: fixed;
     display: flex;
@@ -295,7 +295,7 @@ body {
     background-color: #3B2E41;
     border-radius: 100px;
 }
-/**/
+/*fechamento do Top-button*/
 
 /*inicinado MAIN*/
 main{
@@ -348,6 +348,8 @@ main{
     font-size: 17px;
 }
 
+
+/*     mapa     */
 .localizacao{
     width: 100%;
     height: 90vh;
@@ -391,6 +393,10 @@ iframe{
     height: 80vh;
 }
 
+/*     fecha mapa     */
+
+
+/*     avaliacoes     */
 .avaliacoes{
     width: 100%;
     height: 90vh;
@@ -471,3 +477,36 @@ iframe{
     justify-content: center;
     align-items: center;
 }
+/*     fecha avaliacoes     */
+
+/*rodape*/
+.rodape{
+    color:#f3e4fd;
+    background-color: #793996;
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+.rodape .social-links{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 0%;
+    margin: 0%;
+    list-style: none;
+}
+.rodape li a img{
+    width: 5rem;
+    height: 5rem;
+}
+.countainer-contatos{
+    display: flex;
+    justify-content: center;
+    padding: 0%;
+    margin: 0%;
+}
+.countainer-contatos p{
+    margin: 0rem 1rem 2rem 0rem;
+}
+/*fecha rodape*/
