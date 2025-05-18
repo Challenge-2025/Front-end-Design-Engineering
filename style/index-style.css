@@ -340,8 +340,8 @@ main{
     border-bottom: 2px solid #510369;
 }
 .img-doutora{
-     width: 380px;
-      height: 520px;
+     width: 20rem;
+      height: auto;
 }
 .sobre .textos{
     width: 55%;
@@ -412,6 +412,7 @@ main{
 iframe{
     width: 70%;
     height: 80vh;
+    border-radius: 18px;
 }
 
 /*     fecha mapa     */
@@ -546,13 +547,16 @@ iframe{
         height: auto;
         padding: 1rem 0;
     }
+    .cabeca .logo{
+        height: 9rem;
+        width: auto;
+    }
     .cabeca .countainer-header {
         flex-direction: column;
         height: auto;
     }
     .cabeca .countainer-link {
-        width: 100%;
-        justify-content: center;
+        display: none;
     }
     .cabeca .countainer-link ul {
         flex-direction: column;
@@ -632,10 +636,10 @@ iframe{
 
     .rodape {
         font-size: 1rem;
-        padding: 2rem 4rem 0 4rem;
+        padding: 2rem 0rem 0 0rem;
     }
     .rodape .social-links {
-        flex-direction: column;
+        flex-direction:row ;
         gap: 1rem;
     }
     .rodape li a img {
