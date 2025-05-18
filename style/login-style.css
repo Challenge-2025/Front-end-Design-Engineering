@@ -31,7 +31,7 @@ body {
     align-items: center;
 }
 
-.countainer {
+.container {
     width: 17%;
     height: 3.75rem;
     display: flex;
@@ -43,7 +43,7 @@ body {
     margin: 1.625rem;
 }
 
-.countainer-login {
+.container-login {
     display: flex;
     flex-direction: column;
     align-items: center;
