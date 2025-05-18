@@ -30,6 +30,10 @@ body {
     align-items: center;
     
 }
+.cabeca .logo{
+     width: 5.6rem; 
+     height: 5.6rem;
+}
 .cabeca .countainer-img a{
     text-decoration: none;
 }
@@ -207,6 +211,11 @@ body {
 .login-cadastro-menu{
     display: none;
 }
+.menu ,.btn-fechar-menu{
+     width: 25px; 
+     height: 25px;
+}
+
 
 .countainer .btn-menu-sanduiche {
     position:static;    
@@ -231,6 +240,12 @@ body {
     gap: 0.25rem;
     flex-direction: column;
 }
+.countainer .input img{
+    width: 22px;
+    height: 22px
+}
+
+
 .countainer
 .menu-sanduiche {
     width: 1.375rem;
@@ -250,6 +265,8 @@ body {
     border: none;
     cursor: pointer;
 }
+
+
 
 /*fechando HEADER*/
 
@@ -272,7 +289,10 @@ body {
     background-color: #3B2E41;
     border-radius: 6.25rem;
 }
-
+.ajuda .img-ajuda{
+    width:30px ;
+    height:30px ;
+}
 /*fechando botão ajuda*/
 
 
@@ -319,7 +339,10 @@ main{
     border-radius: 100px;
     border-bottom: 2px solid #510369;
 }
-
+.img-doutora{
+     width: 380px;
+      height: 520px;
+}
 .sobre .textos{
     width: 55%;
     height: 90vh;
@@ -330,7 +353,6 @@ main{
     align-items: center;
     
 }
-
 .sobre .textos .h1{
     width: 100%;
     height: 3.12rem;
@@ -338,7 +360,6 @@ main{
     text-align: left;
     font-size: 1.43rem;
 }
-
 .sobre .paragrafos{
     display: flex;
     flex-direction: column;
@@ -406,7 +427,6 @@ iframe{
     flex-direction: column;
     flex-wrap: nowrap;
 }
-
 .countainer-avaliacoes{
     width: 70%;
     height: 80vh;
@@ -415,7 +435,6 @@ iframe{
     align-items: center;
     gap: 1.9rem;
 }
-
 .box-avaliacoes{
     width: 21.25rem;
     height: 70vh;
@@ -476,6 +495,10 @@ iframe{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.foto-paciente{
+    width: 2.8rem;
+    height: 2.8rem;
 }
 /*     fecha avaliacoes     */
 
