@@ -289,7 +289,7 @@ body {
 /*Top-button*/
 .top{
     position: fixed;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     right: 0;

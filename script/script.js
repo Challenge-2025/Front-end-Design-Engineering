@@ -14,3 +14,17 @@ btnFecharMenu.addEventListener("click", () => {
     menu.style.display = "none";
   }, 400);
 });
+
+document.addEventListener("DOMContentLoaded", function(){
+  const botaoTopo = document.querySelector(".top");
+  
+  window.addEventListener("scroll", function(){
+    if (window.scrollY > 300) {
+      botaoTopo.style.display = "flex";
+
+    } else {
+      botaoTopo.style.display = "none";
+    }
+    })
+
+});
