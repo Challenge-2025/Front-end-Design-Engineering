@@ -494,15 +494,15 @@ iframe{
 /*     fecha avaliacoes     */
 
 /*rodape*/
-.rodape{
+.rodape {
     color:#f3e4fd;
     background-color: #793996;
     font-size: 1.2rem;
     width: 100%;
-    padding: 1.25rem;
+    padding: 1.25rem 0 0 0;
     text-align: center;
 }
-.rodape .social-links{
+.rodape .social-links {
     display: flex;
     justify-content: center;
     gap: 1.9rem;
@@ -510,52 +510,49 @@ iframe{
     margin: 0%;
     list-style: none;
 }
-.rodape li a img{
+.rodape li a img {
     width: 5rem;
     height: 5rem;
 }
-.countainer-contatos{
+.countainer-contatos {
     display: flex;
     justify-content: center;
     padding: 0%;
     margin: 0%;
 }
 .countainer-contatos p{
-    margin: 0rem 1rem 2rem 0rem;
+    margin: 1rem;
 }
 /*fecha rodape*/
 
 
-/*Media query para celulares*/
-@media (max-width: 768px) {
-    body {
-        gap: 1.5rem;
-    }
+/*Media Query para celulares*/
 
-    .cabeca {
+@media (max-width: 440px) {
+
+    .cabeca{
         flex-direction: column;
         height: auto;
-        padding: 0 0 0 0;
     }
     .cabeca .logo{
         height: 9rem;
         width: auto;
     }
-    .cabeca .countainer-header {
+    .cabeca .countainer-header{
         flex-direction: column;
         height: auto;
     }
-    .cabeca .countainer-link {
+    .cabeca .countainer-link{
         display: none;
     }
-    .cadastro-login {
+    .cadastro-login{
         width: 100%;
         justify-content: center;
         margin-top: 1rem;
     }
     
     
-    .cabeca .cadastro{
+    .cabeca .cadastro {
         margin-right: 1rem;
     }
 
@@ -564,12 +561,12 @@ iframe{
         justify-content: center;
         flex-direction: row;
     }
-    .menu {
+    .menu{
         width: 85%;
         right: 6%;
         top: 5%;
         flex-direction: column;
-        margin: 16.5rem 0 0 0;
+        margin: 0 auto;
     }
     .menu .btn-fechar-menu{
         padding: 1rem 3rem;
@@ -577,12 +574,12 @@ iframe{
 
 
 
-    main {
+    main{
         height: auto;
         padding: 1rem 0;
     }
 
-    .sobre {
+    .sobre{
         flex-direction: column;
         height: auto;
         padding: 1rem;
@@ -593,30 +590,30 @@ iframe{
         height: auto;
 
     }
-    .sobre .textos {
+    .sobre .textos{
         width: 100%;
         height: auto;
-        padding: 1rem;
+        padding: 1rem 0 0 0 ;
     }
 
 
-    .localizacao iframe {
+    .localizacao iframe{
         width: 100%;
         height: 50vh;
     }
-    .countainer-loc {
+    .countainer-loc{
         height: auto;
     }
 
-    .avaliacoes {
+    .avaliacoes{
         height: auto;
-        padding: 2rem 0;
+        padding: 2rem 0 0 0;
     }
-    .countainer-avaliacoes {
+    .countainer-avaliacoes{
         flex-direction: column;
         height: auto;
     }
-    .box-avaliacoes, .paciente-1, .paciente-3 {
+    .box-avaliacoes, .paciente-1, .paciente-3{
         width: 90%;
         height: auto;
         padding: 1rem;
@@ -647,5 +644,106 @@ iframe{
         flex-direction: column;
         text-align: center;
         padding: 0 0 0 0;
+    }
+}
+/*Fechamento do media query para celulares*/
+
+/*Media Query para tablets*/
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+    
+
+
+    .cabeca {
+        flex-direction: row;
+        height: auto;
+        padding: 2rem 0 0.5rem;
+    }
+    .cabeca .countainer-header {
+        flex-direction: row;
+        height: auto;
+    }
+    .cabeca .countainer-link{
+        display: none;
+    }
+
+
+    .cadastro-login{
+        width: 100%;
+        align-items: center;
+    }
+    .cadastro-login ul {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+
+    .menu {
+        width: 40%;
+        height: auto;
+        top: 9rem;
+        right: 0.5rem;
+        padding: 0.5rem;
+    }
+    .menu ul {
+        font-size: 1.2rem;
+    }
+
+
+    .sobre{
+        flex-direction: column;
+        gap: 1.5rem;
+        height: auto;
+        border-radius: 30px;
+        padding: 8rem 0 4rem 0;
+    }
+    .sobre .textos {
+        width: 90%;
+        height: auto;
+        text-align: center;
+    }
+    .sobre .paragrafos {
+        font-size: 1rem;
+    }
+
+    .countainer-avaliacoes {
+        flex-direction: column;
+        height: auto;
+    }
+    .box-avaliacoes,
+    .paciente-1,
+    .paciente-3 {
+        width: 100%;
+        height: auto;
+    }
+    .countainer-loc {
+        padding: 9rem 0 0 0;
+        width: 99%;
+    }
+    iframe {
+        width: 95%;
+        height: 60vh;
+    }
+    .input-cep {
+        width: 80%;
+    }
+
+    .slide{ 
+        display: none;
+    }
+    .rodape {
+        font-size: 0.9rem;
+        padding: 1rem 0 0 0;
+    }
+    .rodape .social-links {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+    .rodape li a img {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+    .countainer-contatos {
+        flex-direction: column;
+        text-align: center;
     }
 }
