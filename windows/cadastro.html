@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-    <link rel="stylesheet" href="../style/cadastro-style.css">
-    <link rel="icon" href="../img/favicon-updated.ico" type="image/reabilita-icon">
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/cadastro-style.css" />
+    <link rel="icon" href="../img/favicon-updated.ico" type="image/reabilita-icon" />
     <title>Cadastro - Reabilita Mais</title>
   </head>
 
@@ -14,9 +13,13 @@
       <article>
         <div class="container-img">
           <a href="../index.html">
-            <img class="img-reabilita" src="../img/logo-branca-reabilita-sem-fundo.png" alt="Logo Reabilita+">
+            <img
+              class="img-reabilita"
+              src="../img/logo-branca-reabilita-sem-fundo.png"
+              alt="Logo Reabilita+"
+            />
           </a>
-        </div> 
+        </div>
       </article>
     </header>
 
@@ -27,27 +30,52 @@
           <h3 id="sub-titulo">Digite abaixo suas informações</h3>
 
           <div class="campos">
-            <input type="text" class="inputs" placeholder="Nome completo">
-            <input type="text" class="inputs" placeholder="CEP">
-            <input type="text" class="inputs" placeholder="CPF">
-            <input type="text" class="inputs" placeholder="Número de celular">
-            <input type="text" class="inputs" placeholder="Logradouro">
-            <input type="text" class="inputs" placeholder="Complemento">
+            <div class="input-group">
+              <label for="nome"></label>
+              <input type="text" id="nome" class="inputs" placeholder="Nome completo" />
+            </div>
+
+            <div class="input-group">
+              <label for="cep"></label>
+              <input type="text" id="cep" class="inputs" placeholder="CEP" />
+            </div>
+
+            <div class="input-group">
+              <label for="cpf"></label>
+              <input type="text" id="cpf" class="inputs" placeholder="CPF" />
+            </div>
+
+            <div class="input-group">
+              <label for="celular"></label>
+              <input type="text" id="celular" class="inputs" placeholder="Número de celular" />
+            </div>
+
+            <div class="input-group">
+              <label for="logradouro"></label>
+              <input type="text" id="logradouro" class="inputs" placeholder="Logradouro" />
+            </div>
+
+            <div class="input-group">
+              <label for="complemento"></label>
+              <input type="text" id="complemento" class="inputs" placeholder="Complemento" />
+            </div>
           </div>
 
           <button id="btn-cadastrar">Cadastrar</button>
         </div>
-
-
       </article>
-
     </main>
 
     <article class="ajuda">
       <a href="../index.html" class="btn-ajuda">
-        <img class="icon-ajuda" src="../img/ponto-de-interrogação-64.png" alt="botão de ajuda">
+        <img
+          class="icon-ajuda"
+          src="../img/ponto-de-interrogação-64.png"
+          alt="botão de ajuda"
+        />
       </a>
     </article>
+
     <script src="../script/cadastro.js" defer></script>
   </body>
 </html>

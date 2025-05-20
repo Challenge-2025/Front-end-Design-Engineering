@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-    <link rel="stylesheet" href="../style/login-style.css">
-    <link rel="icon" href="../img/favicon-updated.ico" type="image/x-icon">
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/login-style.css" />
+    <link rel="icon" href="../img/favicon-updated.ico" type="image/x-icon" />
     <title>Login - Reabilita Mais</title>
   </head>
 
@@ -14,9 +13,13 @@
       <article>
         <div class="container-img">
           <a href="../index.html">
-            <img class="img-reabilita" src="../img/logo-branca-reabilita-sem-fundo.png" alt="Logo Reabilita+">
+            <img
+              class="img-reabilita"
+              src="../img/logo-branca-reabilita-sem-fundo.png"
+              alt="Logo Reabilita+"
+            />
           </a>
-        </div> 
+        </div>
       </article>
     </header>
 
@@ -25,34 +28,49 @@
         <div class="container-login">
           <h2 class="conta-txt">Acesse sua conta</h2>
 
-          <div class="campo-login">
-            <p class="exp-input">Digite seu CPF</p>
-            <input class="input-cpf" type="text" placeholder="CPF">
+          <div class="input-group">
+            <label for="cpf" class="exp-input">Digite seu CPF</label>
+            <input
+              class="input-cpf"
+              type="text"
+              id="cpf"
+              name="cpf"
+              placeholder="CPF"
+            />
           </div>
 
-          <div class="campo-login">
-            <p class="exp-input">Digite sua Senha</p>
-            <input class="input-senha" type="password" placeholder="Senha">
+          <div class="input-group">
+            <label for="senha" class="exp-input">Digite sua Senha</label>
+            <input
+              class="input-senha"
+              type="password"
+              id="senha"
+              name="senha"
+              placeholder="Senha"
+            />
           </div>
 
           <div class="esqueceu-senha">
             <a href="#">Esqueceu sua senha?</a>
           </div>
 
-
           <div class="botao-entrar">
             <button class="btn-entrar">Entrar</button>
           </div>
         </div>
       </article>
-
     </main>
 
     <article class="ajuda">
       <a href="../index.html" class="btn-ajuda">
-        <img class="icon-ajuda" src="../img/ponto-de-interrogação-64.png" alt="botão de ajuda">
+        <img
+          class="icon-ajuda"
+          src="../img/ponto-de-interrogação-64.png"
+          alt="botão de ajuda"
+        />
       </a>
     </article>
+
     <script src="../script/login.js" defer></script>
   </body>
 </html>
