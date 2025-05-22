@@ -1,14 +1,13 @@
-/* Estilos gerais */
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   background: linear-gradient(139deg, rgb(69, 13, 115) 0%, rgba(233, 159, 237, 1) 52%, rgba(247, 242, 247, 1) 98%);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  flex-direction: column;
   gap: 2.5rem;
   height: 100vh;
   background-repeat: no-repeat;
@@ -27,6 +26,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 2rem 0;
 }
 
 .container {
@@ -39,18 +39,28 @@ body {
   gap: 1.875rem;
   margin: 1.625rem;
 }
-
-.container-login {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1.875rem;
-  gap: 1.25rem;
-  margin-bottom: 2rem;
+.countainer-img{
+  text-align: center;
 }
 
-.login {
+#titulo {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2b2b2b;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#sub-titulo{
+  text-align: center;
+  color: #3B2E41;
+  font-weight: bold;
+  margin: bottom 1.5em;
+  font-size: 1.5rem;
+}
+
+
+.cadastro {
   width: 100%;
   height: 78.8vh;
   display: flex;
@@ -61,26 +71,23 @@ body {
   border-radius: 6.25rem;
 }
 
-.conta-txt {
-  text-align: center;
-  color: #3B2E41;
-  letter-spacing: 0.25rem;
-  font-weight: bold;
-  margin-top: 8rem;
-  font-size: 2.65rem;
-}
-
-.input-group {
+.container-cadastro {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  align-items: center;
+  padding: 40px 20px;
 }
 
+.campos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 20px;
+}
 
-.input-cpf,
-.input-senha {
+.inputs {
   width: 15rem;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
@@ -92,34 +99,16 @@ body {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.exp-input {
-  font-weight: bold;
-  font-family: sans-serif;
-  font-size: 1.25rem;
-  text-align: center;
-  color: #3B2E41;
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.esqueceu-senha {
-  margin-top: -0.5rem;
-}
 
-.esqueceu-senha a {
-  color: #c173e6;
-  font-size: 0.875rem;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.esqueceu-senha a:hover {
-  color: #510369;
-  text-decoration: underline;
-}
-
-/* Botão Entrar */
-.btn-entrar {
-  justify-content: center;
-  align-items: center;
+#btn-cadastrar {
   background-color: #3B2E41;
   color: white;
   padding: 1rem 2rem;
@@ -132,18 +121,18 @@ body {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.btn-entrar:hover {
-  background-color: #5d486b;
+#btn-cadastrar:hover {
+  background-color: #ae00ff00;
 }
 
-/* Botão Ajuda */
 .ajuda {
   position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  right: 1.25rem;
-  bottom: 1.25rem;
+  right: 0;
+  bottom: 0;
+  margin: 0 1.25rem 1.25rem 0;
 }
 
 .ajuda .btn-ajuda {
@@ -161,7 +150,6 @@ body {
   height: auto;
 }
 
-/* Responsividade */
 @media (max-width: 48rem) {
   .cabeca {
     flex-direction: column;
@@ -169,13 +157,13 @@ body {
     padding: 0.625rem 0;
   }
 
-  .cabeca .container-img {
+  .cabeca .countainer-img {
     width: 90%;
     margin: 0.625rem auto;
     flex-wrap: wrap;
   }
 
-  .container {
+  .countainer {
     width: 90%;
     margin: 0.625rem auto;
     flex-direction: column;
@@ -183,19 +171,13 @@ body {
     gap: 0.625rem;
   }
 
-  .container-login {
+  .cabeca .input {
     width: 100%;
-    padding: 1rem;
+    max-width: 18.75rem;
+    justify-content: space-between;
   }
 
-  .input-cpf,
-  .input-senha {
-    width: 80%;
-    max-width: 20rem;
-  }
-
-  .conta-txt {
-    font-size: 2rem;
-    margin-top: 4rem;
+  .cabeca .input .pesquisa {
+    width: 70%;
   }
 }

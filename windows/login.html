@@ -4,58 +4,73 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../style/login-style.css" />
-    <title>IMREA - Login</title>
-    <link rel="icon" href="../img/favicon-imrea.ico" type="favicon-imrea">
-
+    <link rel="icon" href="../img/favicon-updated.ico" type="image/x-icon" />
+    <title>Login - Reabilita Mais</title>
   </head>
+
   <body>
     <header class="cabeca">
-      <article >
-        <div class="countainer-img">
+      <article>
+        <div class="container-img">
           <a href="../index.html">
-            <img src="../img/logo-hospital-das-clinicas.png" alt="logo hospital das clinicas" width="75px" height="75px"/>
-            <img src="../img/logo-imrea.png" alt="logo imrea"  width="176.55" height="68.95"/>
+            <img
+              class="img-reabilita"
+              src="../img/logo-branca-reabilita-sem-fundo.png"
+              alt="Logo Reabilita+"
+            />
           </a>
         </div>
-        
       </article>
-      <article class="countainer">     
-        <section class="input">
-          <input type="text" placeholder="" class="pesquisa"/>
-          <a href="#" class="btn-pesquisa">
-            <img src="../img/search.png" alt="pesquisar" width="30px" height="30px">
-          </a>
-        </section>
-        <button class="btn-menu-sanduiche">
-          <span>
-            <div class="menu-sanduiche"></div>
-            <div class="menu-sanduiche"></div>
-            <div class="menu-sanduiche"></div>
-          </span>
-        </button>
-    </article>
     </header>
 
     <main>
-        <section class="second-background">
-            <h2>Acesse sua conta</h2>
-            <div>
-                <p>Digite seu CPF</p>
-                <input type="text" placeholder="" class="cpf"/>
-            </div>
+      <article class="login">
+        <div class="container-login">
+          <h2 class="conta-txt">Acesse sua conta</h2>
 
-            <div>
-                <p>Digite sua Senha</p>
-                <input type="text" placeholder="" class="senha"/>
-            </div>
-        </section>
+          <div class="input-group">
+            <label for="cpf" class="exp-input">Digite seu CPF</label>
+            <input
+              class="input-cpf"
+              type="text"
+              id="cpf"
+              name="cpf"
+              placeholder="CPF"
+            />
+          </div>
 
+          <div class="input-group">
+            <label for="senha" class="exp-input">Digite sua Senha</label>
+            <input
+              class="input-senha"
+              type="password"
+              id="senha"
+              name="senha"
+              placeholder="Senha"
+            />
+          </div>
+
+          <div class="esqueceu-senha">
+            <a href="#">Esqueceu sua senha?</a>
+          </div>
+
+          <div class="botao-entrar">
+            <button class="btn-entrar">Entrar</button>
+          </div>
+        </div>
+      </article>
     </main>
 
     <article class="ajuda">
-      <a href="#" class="btn-ajuda">
-        <img src="../img/ponto-de-interrogação-64.png" alt="botão de ajuda" width="30px" height="30px">
+      <a href="../index.html" class="btn-ajuda">
+        <img
+          class="icon-ajuda"
+          src="../img/ponto-de-interrogação-64.png"
+          alt="botão de ajuda"
+        />
       </a>
     </article>
+
+    <script src="../script/login.js" defer></script>
   </body>
 </html>
