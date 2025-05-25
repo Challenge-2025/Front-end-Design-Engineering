@@ -506,6 +506,13 @@ iframe{
     width: 2.8rem;
     height: 2.8rem;
 }
+
+.box-avaliacoes {
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+
 /*     fecha avaliacoes     */
 
 /*rodape*/
@@ -566,7 +573,6 @@ iframe{
         margin-top: 1rem;
     }
     
-    
     .cabeca .cadastro {
         margin-right: 1rem;
     }
@@ -586,8 +592,6 @@ iframe{
     .menu .btn-fechar-menu{
         padding: 1rem 3rem;
     }
-
-
 
     main{
         height: auto;
@@ -633,6 +637,7 @@ iframe{
         height: auto;
         padding: 1rem;
     }
+    
     .foto-paciente{
         border-radius: 100%;
     }
@@ -642,11 +647,6 @@ iframe{
         display: none;
     }
 
-
-    .rodape {
-        font-size: 1rem;
-        padding: 2rem 0rem 0 0rem;
-    }
     .rodape .social-links {
         flex-direction:row ;
         gap: 1rem;
@@ -761,4 +761,16 @@ iframe{
         flex-direction: column;
         text-align: center;
     }
+}
+/* Animação de hover nos blocos de avaliações — (desktop) */
+@media screen and (min-width: 1001px) {
+  .box-avaliacoes {
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .box-avaliacoes:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  }
 }
