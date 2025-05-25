@@ -1,57 +1,55 @@
-/* Estilo inspirado na tela de cadastro */
-
 body {
+  padding: 0;
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #a855f7, #f0abfc);
 }
 
 .logo {
-  margin-top: 2rem;  
-  width: 10rem;     
+  margin-top: 2rem;
+  width: 10rem;
   height: auto;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding: 0px;
+  padding: 0;
 }
-
 
 .fale-conosco {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   min-height: 100vh;
 }
 
 .form-container {
   background-color: rgba(255, 255, 255, 0.829);
-  padding: 40px;
-  border-radius: 30px;
-  max-width: 750px;
+  padding: 2.5rem;
+  border-radius: 1.875rem;
+  max-width: 46.875rem;
   width: 100%;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.2);
 }
 
 .form-container h1 {
   font-size: 2.5rem;
   text-align: center;
   color: #111827;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .form-container p {
   font-size: 1.1rem;
   text-align: center;
   color: #4b5563;
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem;
 }
 
 .form-fale-conosco {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 1.25rem;
   justify-content: space-between;
 }
 
@@ -62,31 +60,31 @@ body {
 .form-fale-conosco input,
 .form-fale-conosco textarea {
   flex: 1 1 48%;
-  padding: 15px;
+  padding: 0.9375rem;
   border: none;
-  border-radius: 25px;
+  border-radius: 1.5625rem;
   font-size: 1rem;
   background-color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
 }
 
 .form-fale-conosco textarea {
   flex: 1 1 100%;
   resize: vertical;
-  min-height: 120px;
+  min-height: 7.5rem;
 }
 
 .btn-enviar {
-  margin: 30px auto 0;
+  margin: 1.875rem auto 0;
   display: block;
-  padding: 15px 30px;
+  padding: 0.9375rem 1.875rem;
   background-color: #a855f7;
   color: white;
   font-size: 1rem;
   font-weight: bold;
   border: none;
-  border-radius: 12px;
+  border-radius: 0.75rem;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -94,33 +92,39 @@ body {
 .btn-enviar:hover {
   background-color: #a955f754;
 }
+
 .rodape {
-    color:#f3e4fd;
-    background-color: #793996;
-    font-size: 1.2rem;
-    width: 100%;
-    padding: 1.25rem 0 0 0;
-    text-align: center;
+  color: #f3e4fd;
+  background-color: #793996;
+  font-size: 1.2rem;
+  width: 100%;
+  padding: 1.25rem 0 0 0;
+  text-align: center;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
+
 .rodape .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.9rem;
-    padding: 0%;
-    margin: 0%;
-    list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.9rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
+
 .rodape li a img {
-    width: 5rem;
-    height: 5rem;
+  width: 5rem;
+  height: 5rem;
 }
+
 .countainer-contatos {
-    display: flex;
-    justify-content: center;
-    padding: 0%;
-    margin: 0%;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
 }
-.countainer-contatos p{
-    margin: 1rem;
+
+.countainer-contatos p {
+  margin: 1rem;
 }
-/*fecha rod
