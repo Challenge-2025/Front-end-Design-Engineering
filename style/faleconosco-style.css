@@ -1,0 +1,126 @@
+/* Estilo inspirado na tela de cadastro */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #a855f7, #f0abfc);
+}
+
+.logo {
+  margin-top: 2rem;  
+  width: 10rem;     
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px;
+}
+
+
+.fale-conosco {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  min-height: 100vh;
+}
+
+.form-container {
+  background-color: rgba(255, 255, 255, 0.829);
+  padding: 40px;
+  border-radius: 30px;
+  max-width: 750px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.form-container h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.form-container p {
+  font-size: 1.1rem;
+  text-align: center;
+  color: #4b5563;
+  margin-bottom: 30px;
+}
+
+.form-fale-conosco {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.form-fale-conosco label {
+  display: none;
+}
+
+.form-fale-conosco input,
+.form-fale-conosco textarea {
+  flex: 1 1 48%;
+  padding: 15px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.form-fale-conosco textarea {
+  flex: 1 1 100%;
+  resize: vertical;
+  min-height: 120px;
+}
+
+.btn-enviar {
+  margin: 30px auto 0;
+  display: block;
+  padding: 15px 30px;
+  background-color: #a855f7;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-enviar:hover {
+  background-color: #a955f754;
+}
+.rodape {
+    color:#f3e4fd;
+    background-color: #793996;
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 1.25rem 0 0 0;
+    text-align: center;
+}
+.rodape .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.9rem;
+    padding: 0%;
+    margin: 0%;
+    list-style: none;
+}
+.rodape li a img {
+    width: 5rem;
+    height: 5rem;
+}
+.countainer-contatos {
+    display: flex;
+    justify-content: center;
+    padding: 0%;
+    margin: 0%;
+}
+.countainer-contatos p{
+    margin: 1rem;
+}
+/*fecha rod
