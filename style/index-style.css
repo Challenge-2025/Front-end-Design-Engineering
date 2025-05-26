@@ -180,7 +180,11 @@ body {
     display: flex;
     flex-direction: row;
 }
-
+.withUs,
+.loc,
+.about{
+    display: none;
+}
 .menu ul{
     width: 80%;
     margin: 1.25rem;
@@ -198,7 +202,7 @@ body {
 }
 .menu ul li{
     width: 100%;
-    border-bottom: 2px solid #D9D9D9;
+    border-bottom: 0px solid #D9D9D9;
 }
 .menu ul li a{
     text-decoration: none;
