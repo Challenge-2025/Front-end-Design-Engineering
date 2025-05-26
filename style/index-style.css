@@ -706,7 +706,11 @@ iframe{
     .menu ul {
         font-size: 1.2rem;
     }
-
+    .withUs,
+    .loc,
+    .about{
+    display: flex;
+    }
 
     .sobre{
         flex-direction: column;
