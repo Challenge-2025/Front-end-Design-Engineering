@@ -128,3 +128,22 @@ body {
 .countainer-contatos p {
   margin: 1rem;
 }
+
+@media (max-width: 440px){
+.rodape {
+        font-size: 0.9rem;
+        padding: 2rem 0 2rem 0;
+    }
+    .rodape .social-links {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+    .rodape li a img {
+        width: 3rem;
+        height: 3rem;
+    }
+    .countainer-contatos {
+        flex-direction: column;
+        text-align: center;
+    }
+  }
