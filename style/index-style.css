@@ -180,7 +180,11 @@ body {
     display: flex;
     flex-direction: row;
 }
-
+.withUs,
+.loc,
+.about{
+    display: none;
+}
 .menu ul{
     width: 80%;
     margin: 1.25rem;
@@ -198,7 +202,7 @@ body {
 }
 .menu ul li{
     width: 100%;
-    border-bottom: 2px solid #D9D9D9;
+    border-bottom: 0px solid #D9D9D9;
 }
 .menu ul li a{
     text-decoration: none;
@@ -592,6 +596,11 @@ iframe{
     .menu .btn-fechar-menu{
         padding: 1rem 3rem;
     }
+    .withUs,
+    .loc,
+    .about{
+    display: flex;
+    }
 
     main{
         height: auto;
@@ -702,7 +711,11 @@ iframe{
     .menu ul {
         font-size: 1.2rem;
     }
-
+    .withUs,
+    .loc,
+    .about{
+    display: flex;
+    }
 
     .sobre{
         flex-direction: column;
@@ -734,6 +747,10 @@ iframe{
         padding: 9rem 0 0 0;
         width: 99%;
     }
+    .conta-txt-local{
+    margin-top: 17rem;
+    }
+
     iframe {
         width: 95%;
         height: 60vh;
