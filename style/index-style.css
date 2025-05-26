@@ -596,6 +596,11 @@ iframe{
     .menu .btn-fechar-menu{
         padding: 1rem 3rem;
     }
+    .withUs,
+    .loc,
+    .about{
+    display: flex;
+    }
 
     main{
         height: auto;
