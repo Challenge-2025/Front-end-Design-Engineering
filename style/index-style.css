@@ -734,6 +734,10 @@ iframe{
         padding: 9rem 0 0 0;
         width: 99%;
     }
+    .conta-txt-local{
+    margin-top: 17rem;
+    }
+
     iframe {
         width: 95%;
         height: 60vh;
