@@ -16,7 +16,7 @@
 
         & a {
           @apply hover:text-xl hover:text-[#793996] transition-all duration-350 ease-linear;
-        }
+        }   
       }
     }
 
