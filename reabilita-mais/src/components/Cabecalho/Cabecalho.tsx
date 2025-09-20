@@ -4,7 +4,7 @@ import LogoBranca from "../../img/logo-branca-reabilita-sem-fundo.png";
 
 export default function Cabecalho() {
   return (
-    <header>
+    <header className="flex justify-center items-center w-[94%] border-b-[2px] gap-[35px]">
       <Link to="/">
         <img
           src={LogoBranca}
