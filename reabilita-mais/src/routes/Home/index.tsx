@@ -18,19 +18,19 @@ export default function Home() {
   console.log(cliente);
   return (
     <main className="flex flex-col justify-center items-center text-black">
-      <article className="flex justify-center items-center w-[80%] border-b-[3px] border-b-[#793996] rounded-[60px] p-8 md:p-16 gap-8">
+      <article className="flex justify-center items-center w-[80%] border-b-[3px] border-b-[#793996] rounded-[60px] p-8 md:p-16 gap-8 lg:h-[80vh] xl:h-[50vh]">
         <img
           src={Doutora}
           alt="Imagem de doutora olhando para a câmera"
-          className="w-[20rem]"
+          className="lg:w-[25rem] hidden lg:block"
         />
 
         <section>
-          <header>
-            <h1 className="w-[90%] h-[3.12rem] mb-0 text-[1.43rem] font-bold text-[#3B2E41]">
+          <div>
+            <h1 className="w-[90%] h-[3.12rem] mb-0 text-[1.43rem] sm:text-[2rem] font-bold text-[#3B2E41]">
               Sobre nós
             </h1>
-          </header>
+          </div>
           <div className="flex flex-col gap-2.5">
             <p>
               A Reabilita+ é uma empresa especializada na oferta de serviços
@@ -70,26 +70,26 @@ export default function Home() {
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d467690.14386865456!2d-46.92495573160536!3d-23.682063556622076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce448183a461d1%3A0x9ba94b08ff335bae!2zU8OjbyBQYXVsbywgU1A!5e0!3m2!1spt-BR!2sbr!4v1746765966396!5m2!1spt-BR!2sbr"
             loading="lazy"
-            className="w-[90%] h-[70vh]"
+            className="w-[90%] h-[50vh]"
             title="Mapa de localização"
           ></iframe>
         </section>
       </article>
 
-      <article className="w-[90%] flex gap-[7rem] items-center justify-center">
+      <article className="w-[90%] flex gap-[7rem] items-center justify-center xl:flex-row sm:flex-col">
         {cliente.map((c, idc) => (
           <div
             key={idc}
-            className="bg-[#793996] border-[2px] border-[#5e1580] rounded-2xl p-6 flex flex-col items-center text-center shadow-lg h-[50vh] w-[25%] justify-between"
+            className="bg-[#793996] border-[2px] border-[#5e1580] rounded-2xl p-6 flex flex-col items-center text-center shadow-lg h-[50vh] w-[25%] justify-between sm:w-[80%]"
           >
             <img
               src={c.foto_perfil}
               alt={`Foto de perfil de ${c.nome}`}
               className="w-[5rem] h-[5rem] rounded-full object-cover mb-4 border-2 border-white"
             />
-            <h3 className="text-white font-semibold mb-2">{c.nome}</h3>
-            <p className="text-white w-[70%]">{c.descricao}</p>
-            <p className="text-[1.2rem] font-bold text-[#3B2E41]">{c.avaliacao}</p>
+            <h3 className="text-[#D9D9D9] font-semibold mb-2">{c.nome}</h3>
+            <p className="text-[#D9D9D9] w-[70%]">{c.descricao}</p>
+            <p className="text-[1.2rem] font-bold text-[#D9D9D9]">{c.avaliacao}</p>
           </div>
         ))}
       </article>
