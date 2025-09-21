@@ -44,18 +44,38 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen text-white flex flex-col items-center justify-center px-4">
-
-      <main className="w-[700px] h-[500px] bg-white/10 backdrop-blur-xl p-14 rounded-3xl shadow-2xl border border-white/20 transition-all duration-300">
-        <h2 className="text-3xl font-bold mb-8 text-center text-white drop-shadow">
+    <div className="min-h-screen text-white flex flex-col items-center justify-center px-2 sm:px-4">
+      <main
+        className="
+          w-full
+          sm:w-[400px]
+          md:w-[500px]
+          lg:w-[600px]
+          xl:w-[700px]
+          2xl:w-[800px]
+          h-auto
+          bg-white/10
+          backdrop-blur-xl
+          p-4
+          sm:p-8
+          md:p-10
+          lg:p-12
+          xl:p-14
+          rounded-3xl
+          shadow-2xl
+          border border-white/20
+          transition-all duration-300
+        "
+      >
+        <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center text-white drop-shadow">
           Acesse sua conta
         </h2>
 
-        <form onSubmit={handleLogin} className="space-y-6">
+        <form onSubmit={handleLogin} className="space-y-4 sm:space-y-6">
           <div>
             <label
               htmlFor="cpf"
-              className="block mb-2 text-sm font-medium text-white/80"
+              className="block mb-1 sm:mb-2 text-sm font-medium text-white/80"
             >
               Digite seu CPF
             </label>
@@ -65,7 +85,7 @@ export default function Login() {
               value={cpf}
               onChange={(e) => setCpf(e.target.value)}
               placeholder="CPF"
-              className="w-full px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
+              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
               autoComplete="on"
             />
           </div>
@@ -73,7 +93,7 @@ export default function Login() {
           <div>
             <label
               htmlFor="senha"
-              className="block mb-2 text-sm font-medium text-white/80"
+              className="block mb-1 sm:mb-2 text-sm font-medium text-white/80"
             >
               Digite sua Senha
             </label>
@@ -83,7 +103,7 @@ export default function Login() {
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
               placeholder="Senha"
-              className="w-full px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
+              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
               autoComplete="off"
             />
           </div>
@@ -105,7 +125,7 @@ export default function Login() {
           </button>
         </form>
 
-        <p className="mt-6 text-center text-sm text-white/80">
+        <p className="mt-4 sm:mt-6 text-center text-sm text-white/80">
           Não tem conta?{" "}
           <a
             href="/cadastro"
@@ -116,14 +136,13 @@ export default function Login() {
         </p>
       </main>
 
-      <div className="mt-8 flex items-center justify-center gap-2">
+      <div className="mt-6 sm:mt-8 flex items-center justify-center gap-2">
         <a
           href="/ajuda"
           className="flex items-center underline hover:text-purple-700 transition-colors"
-        > 
+        >
           Precisa de ajuda
           <img src={ajudaIcon} alt="botão de ajuda" className="h-6 mr-2" />
-          
         </a>
       </div>
     </div>
