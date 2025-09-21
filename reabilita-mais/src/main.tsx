@@ -1,4 +1,4 @@
-import React from "react";
+
 import ReactDOM from "react-dom/client";
 import { StrictMode } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -11,6 +11,7 @@ import Participantes from "./routes/Participantes/index.tsx";
 import Login from "./routes/Login/index.tsx";
 import Cadastro from "./routes/Cadastro/index.tsx";
 import "./globals.css";
+import Ajuda from "./routes/Ajuda/index.tsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
       { path: "/participantes", element: <Participantes /> },
       { path: "/login", element: <Login /> },
       { path: "/cadastro", element: <Cadastro /> },
+      { path: "/ajuda", element: <Ajuda /> },
     ],
   },
 ]);
