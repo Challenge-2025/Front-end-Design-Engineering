@@ -31,7 +31,28 @@ export default function Cadastro() {
 
   return (
     <div className="min-h-screen text-white flex flex-col items-center justify-center px-2 sm:px-4">
-      <main className="w-full max-w-5xl bg-white/10 backdrop-blur-xl p-6 sm:p-10 lg:p-16 rounded-3xl shadow-2xl border border-white/20 transition-all duration-300">
+      <main
+        className="
+          w-full
+          sm:w-[400px]
+          md:w-[500px]
+          lg:w-[600px]
+          xl:w-[700px]
+          2xl:w-[800px]
+          h-auto
+          bg-white/10
+          backdrop-blur-xl
+          p-4
+          sm:p-8
+          md:p-10
+          lg:p-12
+          xl:p-14
+          rounded-3xl
+          shadow-2xl
+          border border-white/20
+          transition-all duration-300
+        "
+      >
         <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center text-white drop-shadow">
           Crie sua conta
         </h2>
@@ -147,7 +168,7 @@ export default function Cadastro() {
 
         <p className="mt-6 text-center text-sm text-white/80">
           Já tem conta?{" "}
-          <a href="/login" className="text-purple-300 underline hover:text-purple-400">
+          <a href="/login" className="text-purple-300 underline hover:text-purple-700">
             Faça login
           </a>
         </p>
