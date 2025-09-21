@@ -1,3 +1,5 @@
+import xError from '../../img/icons8-x-160.png'
+
 export default function Error(){
 
     return(

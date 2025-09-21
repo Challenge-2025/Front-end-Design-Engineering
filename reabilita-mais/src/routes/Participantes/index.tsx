@@ -2,7 +2,6 @@ import imgPedro from "../../img/ferreira foto.jpg";
 import imgBiel from "../../img/gabrielfoto.jpg";
 import linkedin from "../../img/linkedin-icon.png";
 import github from "../../img/github-icon.png";
-import { Link } from "react-router-dom";
 
 export default function Participantes() {
   return (
@@ -11,7 +10,7 @@ export default function Participantes() {
         <h1 className="text-[3rem] text-3xl sm:text-4xl font-bold mb-8 text-center text-white drop-shadow">
           Participantes
         </h1>
-        <div className="flex gap-[3rem] font-bold">
+        <div className="flex gap-[3rem] font-bold lg:flex-col">
           <div className="px-3 sm:px-4 py-2 rounded-2xl bg-white/20 text-white border border-white/30 focus:ring-2 focus:ring-purple-400 text-center">
             <h3>Pedro Ferreira Gomes</h3>
             <img
