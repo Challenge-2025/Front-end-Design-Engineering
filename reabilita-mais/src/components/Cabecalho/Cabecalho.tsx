@@ -5,13 +5,10 @@ import MenuSanduiche from "../Menu/MenuSanduiche";
 
 export default function Cabecalho() {
   return (
-    <header className="flex justify-center items-center w-[94%] border-b-[2px] gap-[35px] sm:gap-[1.5rem] sm:justify-between">
+    <header className="flex items-center w-[94%] lg:w-[80%] 2xl:w-[85%] border-b-[2px] sm:gap-[1.5rem] justify-between md:text-[1rem] ">
       <Link to="/">
-        <img
-          src={LogoBranca}
-          alt="Logo Reabilita Mais"
-          className="w-[6.9rem] h-[6.6rem] sm:w-[8.5rem]"
-        />
+        <img src={LogoBranca}
+          alt="Logo Reabilita Mais" className="2xl:w-[9rem] md:w-[9rem] md:h-[7.5em] sm:w-[8.5rem] lg:w-[8.9rem]"/>
       </Link>
       <Menu />
       <MenuSanduiche/>

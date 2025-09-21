@@ -18,20 +18,21 @@ export default function Home() {
   console.log(cliente);
   return (
     <main className="flex flex-col justify-center items-center text-black">
-      <article className="flex justify-center items-center w-[80%] border-b-[3px] border-b-[#793996] rounded-[60px] p-8 md:p-16 gap-8 lg:h-[80vh] xl:h-[50vh]">
+      <article className="flex justify-center items-center w-[80%] border-b-[3px] 2xl:border-b-[0.35rem] border-b-[#793996] rounded-[60px] p-8 md:p-16 gap-8 xl:h-[80vh] 2xl:h-[80vh] 2xl:w-[80%] md-[60vh]">
         <img
           src={Doutora}
           alt="Imagem de doutora olhando para a câmera"
-          className="lg:w-[25rem] hidden lg:block"
+          className="lg:w-[20rem] 2xl:w-[30rem] xl:flex sm:hidden block 
+             [mask-image:linear-gradient(to_bottom,white_90%,transparent)] 
+             [mask-repeat:no-repeat] [mask-size:100%]"
         />
-
         <section>
           <div>
-            <h1 className="w-[90%] h-[3.12rem] mb-0 text-[1.43rem] sm:text-[2rem] font-bold text-[#3B2E41]">
+            <h1 className="w-[90%] h-[3.12rem] mb-0 text-[1.43rem] sm:text-[2rem] font-bold text-[#3B2E41] 2xl:text-[2.5rem]">
               Sobre nós
             </h1>
           </div>
-          <div className="flex flex-col gap-2.5">
+          <div className="flex flex-col gap-2.5 2xl:text-[1.2rem] 2xl:w-[80%]">
             <p>
               A Reabilita+ é uma empresa especializada na oferta de serviços
               terceirizados para clínicas de reabilitação em múltiplas áreas.
@@ -60,10 +61,10 @@ export default function Home() {
         </section>
       </article>
 
-      <article className="w-[80%] h-[100vh] flex flex-col justify-center items-center">
-        <section className="text-[2rem] font-bold flex flex-col items-center justify-center gap-[3rem]">
+      <article className="w-[100%] h-[100vh] flex flex-col justify-center items-center">
+        <section className="text-[2rem] font-bold flex flex-col items-center justify-center gap-[3rem] 2xl:w-[90%] 2xl:h-[70vh]">
           <header>
-            <h2 className="text-[#3B2E41]">
+            <h2 className="text-[#3B2E41] sm:text-[1.7rem] lg:text-[2.3] sm:text-center">
               Informe seu CEP e te ajudamos a encontrar o posto mais próximo
             </h2>
           </header>
@@ -80,16 +81,22 @@ export default function Home() {
         {cliente.map((c, idc) => (
           <div
             key={idc}
-            className="bg-[#793996] border-[2px] border-[#5e1580] rounded-2xl p-6 flex flex-col items-center text-center shadow-lg h-[50vh] w-[25%] justify-between sm:w-[80%]"
+            className="bg-[#793996] border-[2px] border-[#5e1580] rounded-2xl p-6 flex flex-col items-center text-center shadow-lg h-[50vh] w-[25%] justify-between sm:w-[80%] 2xl:h-[60vh]"
           >
             <img
               src={c.foto_perfil}
               alt={`Foto de perfil de ${c.nome}`}
-              className="w-[5rem] h-[5rem] rounded-full object-cover mb-4 border-2 border-white"
+              className="md:w-[5rem]  md:h-[5rem] 2xl:w-[7rem] 2xl:h-[7rem] rounded-full object-cover mb-4 border-2 border-white"
             />
-            <h3 className="text-[#D9D9D9] font-semibold mb-2">{c.nome}</h3>
-            <p className="text-[#D9D9D9] w-[70%]">{c.descricao}</p>
-            <p className="text-[1.2rem] font-bold text-[#D9D9D9]">{c.avaliacao}</p>
+            <h3 className="text-[#D9D9D9] font-semibold mb-2 2xl:text-[2rem] md:text-[1rem]">
+              {c.nome}
+            </h3>
+            <p className="text-[#D9D9D9] w-full 2xl:text-[1.5rem] md:text-[1rem] break-words leading-relaxed line-clamp-7">
+              {c.descricao}
+            </p>
+            <p className="text-[1.2rem] font-bold text-[#D9D9D9] 2xl:text-[1.5rem] md:text-[1rem]">
+              {c.avaliacao}
+            </p>
           </div>
         ))}
       </article>

@@ -5,11 +5,10 @@ export default function MenuSanduiche() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="relative lg:hidden">
+    <div className="relative lg:hidden flex items-center justify-center">
       <button
         className="w-10 h-10 flex items-center justify-center rounded-full bg-[#793996] transition"
-        onClick={() => setOpen(true)}
-      >
+        onClick={() => setOpen(true)}>
         <span className="flex flex-col gap-[4px]">
           <div className="w-[1.37rem] h-[2px] rounded-full bg-[#510369]"></div>
           <div className="w-[1.37rem] h-[2px] rounded-full bg-[#510369]"></div>
@@ -30,7 +29,6 @@ export default function MenuSanduiche() {
     <li><Link to="/faleConosco">Fale Conosco</Link></li>
   </ul>
 
-  {/* botão fechar */}
   <button
     onClick={() => setOpen(false)}
     className="mt-auto self-center w-10 h-10 flex items-center justify-center text-white"
