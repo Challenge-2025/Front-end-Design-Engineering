@@ -131,7 +131,7 @@ export default function Login() {
             href="/cadastro"
             className="underline hover:text-purple-700 transition-colors"
           >
-            Cadastre-se
+            Clique aqui
           </a>
         </p>
       </main>

@@ -154,6 +154,21 @@ export default function Cadastro() {
               className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
             />
           </div>
+
+          <div>
+            <label htmlFor="deficiencia" className="block mb-2 text-sm font-medium text-white/80">
+              Possui deficiência?
+            </label>
+            <select
+              id="deficiencia"
+              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all duration-300"
+              defaultValue=""
+            >
+              <option value="" disabled>Selecione</option>
+              <option value="sim" className="text-gray-800">Sim</option>
+              <option value="nao" className="text-gray-800">Não</option>
+            </select>
+          </div>
         </form>
 
         <div className="mt-8">
@@ -166,10 +181,13 @@ export default function Cadastro() {
           </button>
         </div>
 
-        <p className="mt-6 text-center text-sm text-white/80">
+        <p className="mt-4 sm:mt-6 text-center text-sm text-white/80">
           Já tem conta?{" "}
-          <a href="/login" className="text-purple-300 underline hover:text-purple-700">
-            Faça login
+          <a
+            href="/login"
+            className="underline hover:text-purple-700 transition-colors"
+          >
+            Clique aqui
           </a>
         </p>
       </main>
