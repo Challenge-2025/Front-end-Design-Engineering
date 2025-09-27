@@ -7,13 +7,13 @@ export default function Menu() {
       <nav className="flex flex-wrap justify-center sm:justify-start items-center gap-6 text-base sm:text-lg font-medium">
         <Link
           to="/"
-          className="hover:text-[#793996] transition-all duration-300"
+          className="hover:text-[#471b5c] transition-all duration-300"
         >
           Home
         </Link>
         <Link
           to="/participantes"
-          className="hover:text-[#793996] transition-all duration-300"
+          className="hover:text-[#471b5c] transition-all duration-300"
         >
           Participantes
         </Link>
@@ -23,16 +23,18 @@ export default function Menu() {
       <nav className="flex flex-wrap justify-center sm:justify-end items-center gap-4 text-base sm:text-lg font-medium">
         <Link
           to="/login"
-          className="py-2 px-6 bg-[#793996] rounded-xl text-white hover:bg-transparent hover:text-[#793996] hover:border-2 border-[#793996] transition-all duration-300"
+          className="w-[140px] h-[44px] flex items-center justify-center bg-[#793996] rounded-xl text-white text-[1rem] text-center border-2 border-transparent hover:border-[#793996] hover:bg-transparent hover:text-[#793996] transition-all duration-300"
         >
           Login
         </Link>
+
         <Link
           to="/cadastro"
-          className="py-2 px-6 bg-[#931896] rounded-xl text-white hover:bg-transparent hover:text-[#931896] hover:border-2 border-[#931896] transition-all duration-300"
+          className="w-[140px] h-[44px] flex items-center justify-center bg-[#931896] rounded-xl text-white text-[1rem] text-center border-2 border-transparent hover:border-[#931896] hover:bg-transparent hover:text-[#931896] transition-all duration-300"
         >
           Cadastrar
         </Link>
+
       </nav>
     </div>
   );
