@@ -1,33 +1,28 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import ajudaIcon from "../../img/ponto-de-interrogação-64.png";
 
+type FormValues = {
+  nome: string;
+  cpf: string;
+  email: string;
+  telefone: string;
+  nascimento: string;
+  senha: string;
+  confirmarSenha: string;
+  deficiencia: string;
+};
+
 export default function Cadastro() {
-  const [nome, setNome] = useState("");
-  const [cpf, setCpf] = useState("");
-  const [email, setEmail] = useState("");
-  const [telefone, setTelefone] = useState("");
-  const [nascimento, setNascimento] = useState("");
-  const [senha, setSenha] = useState("");
-  const [confirmarSenha, setConfirmarSenha] = useState("");
+  const { register, handleSubmit, watch, formState: { errors } } = useForm<FormValues>();
   const navigate = useNavigate();
 
-  function handleCadastro(e: React.FormEvent) {
-    e.preventDefault();
+  const senha = watch("senha"); // observa o valor do campo senha
 
-    if (!nome || !cpf || !email || !telefone || !nascimento || !senha || !confirmarSenha) {
-      alert("Preencha todos os campos.");
-      return;
-    }
-
-    if (senha !== confirmarSenha) {
-      alert("As senhas não coincidem.");
-      return;
-    }
-
+  const onSubmit = () => {
     alert("Cadastro realizado com sucesso!");
     navigate("/login");
-  }
+  };
 
   return (
     <div className="min-h-screen text-white flex flex-col items-center justify-center px-2 sm:px-4">
@@ -57,7 +52,7 @@ export default function Cadastro() {
           Crie sua conta
         </h2>
 
-        <form onSubmit={handleCadastro} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="nome" className="block mb-2 text-sm font-medium text-white/80">
               Nome completo
@@ -65,11 +60,13 @@ export default function Cadastro() {
             <input
               type="text"
               id="nome"
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}
+              {...register("nome", { required: "Nome é obrigatório" })}
               placeholder="Seu nome"
-              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
+              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white 
+                         border border-white/30 focus:outline-none focus:ring-2 
+                         focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
             />
+            {errors.nome && <p className="text-red-400 text-sm">{errors.nome.message}</p>}
           </div>
 
           <div>
@@ -79,11 +76,13 @@ export default function Cadastro() {
             <input
               type="text"
               id="cpf"
-              value={cpf}
-              onChange={(e) => setCpf(e.target.value)}
+              {...register("cpf", { required: "CPF é obrigatório" })}
               placeholder="000.000.000-00"
-              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
+              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border 
+                         border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 
+                         placeholder-white/60 transition-all duration-300"
             />
+            {errors.cpf && <p className="text-red-400 text-sm">{errors.cpf.message}</p>}
           </div>
 
           <div>
@@ -93,11 +92,13 @@ export default function Cadastro() {
             <input
               type="email"
               id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              {...register("email", { required: "E-mail é obrigatório" })}
               placeholder="nome@dominio.com"
-              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
+              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white 
+                         border border-white/30 focus:outline-none focus:ring-2 
+                         focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
             />
+            {errors.email && <p className="text-red-400 text-sm">{errors.email.message}</p>}
           </div>
 
           <div>
@@ -107,11 +108,13 @@ export default function Cadastro() {
             <input
               type="tel"
               id="telefone"
-              value={telefone}
-              onChange={(e) => setTelefone(e.target.value)}
+              {...register("telefone", { required: "Telefone é obrigatório" })}
               placeholder="(XX) XXXXX-XXXX"
-              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
+              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white 
+                         border border-white/30 focus:outline-none focus:ring-2 
+                         focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
             />
+            {errors.telefone && <p className="text-red-400 text-sm">{errors.telefone.message}</p>}
           </div>
 
           <div>
@@ -121,10 +124,12 @@ export default function Cadastro() {
             <input
               type="date"
               id="nascimento"
-              value={nascimento}
-              onChange={(e) => setNascimento(e.target.value)}
-              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
+              {...register("nascimento", { required: "Data de nascimento é obrigatória" })}
+              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white 
+                         border border-white/30 focus:outline-none focus:ring-2 
+                         focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
             />
+            {errors.nascimento && <p className="text-red-400 text-sm">{errors.nascimento.message}</p>}
           </div>
 
           <div>
@@ -134,11 +139,13 @@ export default function Cadastro() {
             <input
               type="password"
               id="senha"
-              value={senha}
-              onChange={(e) => setSenha(e.target.value)}
+              {...register("senha", { required: "Senha é obrigatória" })}
               placeholder="Crie uma senha"
-              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
+              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white 
+                         border border-white/30 focus:outline-none focus:ring-2 
+                         focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
             />
+            {errors.senha && <p className="text-red-400 text-sm">{errors.senha.message}</p>}
           </div>
 
           <div>
@@ -148,11 +155,16 @@ export default function Cadastro() {
             <input
               type="password"
               id="confirmarSenha"
-              value={confirmarSenha}
-              onChange={(e) => setConfirmarSenha(e.target.value)}
+              {...register("confirmarSenha", { 
+                required: "Confirmação de senha é obrigatória",
+                validate: value => value === senha || "As senhas não coincidem"
+              })}
               placeholder="Repita a senha"
-              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
+              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white 
+                         border border-white/30 focus:outline-none focus:ring-2 
+                         focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
             />
+            {errors.confirmarSenha && <p className="text-red-400 text-sm">{errors.confirmarSenha.message}</p>}
           </div>
 
           <div>
@@ -161,25 +173,29 @@ export default function Cadastro() {
             </label>
             <select
               id="deficiencia"
-              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all duration-300"
+              {...register("deficiencia", { required: "Selecione uma opção" })}
+              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border 
+                         border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 
+                         transition-all duration-300"
               defaultValue=""
             >
               <option value="" disabled>Selecione</option>
               <option value="sim" className="text-gray-800">Sim</option>
               <option value="nao" className="text-gray-800">Não</option>
             </select>
+            {errors.deficiencia && <p className="text-red-400 text-sm">{errors.deficiencia.message}</p>}
+          </div>
+          
+          <div className="md:col-span-2 mt-8">
+            <button
+              type="submit"
+              className="w-full bg-purple-600/80 hover:bg-purple-700 text-white py-3 rounded-xl 
+                         font-semibold shadow transition-all duration-300"
+            >
+              Cadastrar
+            </button>
           </div>
         </form>
-
-        <div className="mt-8">
-          <button
-            type="submit"
-            onClick={handleCadastro}
-            className="w-full bg-purple-600/80 hover:bg-purple-700 text-white py-3 rounded-xl font-semibold shadow transition-all duration-300"
-          >
-            Cadastrar
-          </button>
-        </div>
 
         <p className="mt-4 sm:mt-6 text-center text-sm text-white/80">
           Já tem conta?{" "}
