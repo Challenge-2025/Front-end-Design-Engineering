@@ -1,3 +1,4 @@
+// src/main.tsx
 
 import ReactDOM from "react-dom/client";
 import { StrictMode } from "react";
@@ -9,8 +10,10 @@ import Error from "./routes/Error/index.tsx";
 import Participantes from "./routes/Participantes/index.tsx";
 import Login from "./routes/Login/index.tsx";
 import Cadastro from "./routes/Cadastro/index.tsx";
-import "./globals.css";
 import Ajuda from "./routes/Ajuda/index.tsx";
+import ClienteDetalhe from "./routes/ClienteDetalhe/index.tsx";
+import "./globals.css";
+
 
 const router = createBrowserRouter([
   {
@@ -23,6 +26,7 @@ const router = createBrowserRouter([
       { path: "/login", element: <Login /> },
       { path: "/cadastro", element: <Cadastro /> },
       { path: "/ajuda", element: <Ajuda /> },
+      { path: "/cliente/:id", element: <ClienteDetalhe /> },
     ],
   },
 ]);
