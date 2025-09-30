@@ -1,10 +1,11 @@
+// src/routes/Cadastro/index.tsx
+
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import ajudaIcon from "../../img/ponto-de-interrogação-64.png";
-
+import TituloSecao from "../../components/TituloSecao/TituloSecao"; 
 
 type FormValues = {
-
   nome: string;
   cpf: string;
   email: string;
@@ -13,8 +14,6 @@ type FormValues = {
   senha: string;
   confirmarSenha: string;
   deficiencia: string;
-
-
   cep: string;
   logradouro: string;
   numero: string;
@@ -31,7 +30,6 @@ export default function Cadastro() {
 
   const onSubmit = (data: FormValues) => {
     console.log("Dados do formulário:", data); 
-    
     alert("Cadastro realizado com sucesso!");
     navigate("/login");
   };
@@ -41,7 +39,7 @@ export default function Cadastro() {
       <main
         className="
           w-full
-          max-w-4xl /* Aumentado para comportar mais campos */
+          max-w-4xl
           h-auto
           bg-white/10
           backdrop-blur-xl
@@ -57,10 +55,8 @@ export default function Cadastro() {
         </h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
-          {/* Seção de Dados Pessoais */}
           <fieldset className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <legend className="text-xl font-semibold text-white/90 mb-4 col-span-full">Dados Pessoais</legend>
-
+            <TituloSecao titulo="Dados Pessoais" /> 
             <div>
               <label htmlFor="nome" className="block mb-2 text-sm font-medium text-white/80">Nome completo</label>
               <input type="text" id="nome" {...register("nome", { required: "Nome é obrigatório" })} placeholder="Seu nome"
@@ -114,11 +110,9 @@ export default function Cadastro() {
             </div>
           </fieldset>
           
-          {/* Seção de Endereço */}
           <fieldset className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <legend className="text-xl font-semibold text-white/90 mb-4 col-span-full">Endereço</legend>
-            
-            <div>
+            <TituloSecao titulo="Endereço" /> 
+             <div>
               <label htmlFor="cep" className="block mb-2 text-sm font-medium text-white/80">CEP</label>
               <input type="text" id="cep" {...register("cep", { required: "CEP é obrigatório" })} placeholder="00000-000"
                 className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
@@ -166,9 +160,8 @@ export default function Cadastro() {
             </div>
           </fieldset>
 
-          {/* Seção de Senha */}
           <fieldset className="grid grid-cols-1 md:grid-cols-2 gap-6">
-             <legend className="text-xl font-semibold text-white/90 mb-4 col-span-full">Segurança</legend>
+             <TituloSecao titulo="Segurança" /> {/* <-- 2. USO DO COMPONENTE COM PROP */}
             <div>
               <label htmlFor="senha" className="block mb-2 text-sm font-medium text-white/80">Senha</label>
               <input type="password" id="senha" {...register("senha", { required: "Senha é obrigatória" })} placeholder="Crie uma senha"
