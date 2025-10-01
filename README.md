@@ -111,5 +111,5 @@ Para executar este projeto, você precisará de dois terminais rodando simultane
 
 ### 🔗 Links Importantes
 
-* **Repositório GitHub:** `[https://github.com/Challenge-2025/Front-end-Design-Engineering]`
-* **Vídeo de Apresentação (YouTube):** `[https://youtu.be/5L4xCeGQH9A]`
+* **Repositório GitHub:** `https://github.com/Challenge-2025/Front-end-Design-Engineering`
+* **Vídeo de Apresentação (YouTube):** `https://youtu.be/5L4xCeGQH9A`
