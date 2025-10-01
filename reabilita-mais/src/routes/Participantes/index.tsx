@@ -6,17 +6,17 @@ import github from "../../img/github-icon.png";
 export default function Participantes() {
   return (
     <main>
-      <article className=" flex flex-col ">
+      <article className=" flex flex-col">
         <h1 className="text-[3rem] text-3xl sm:text-4xl font-bold mb-8 text-center text-white drop-shadow">
           Participantes
         </h1>
-        <div className="flex gap-[3rem] font-bold lg:flex-col">
+        <div className="flex gap-[3rem] font-bold lg:flex-col md:flex-row">
           <div className="px-3 sm:px-4 py-2 rounded-2xl bg-white/20 text-white border border-white/30 focus:ring-2 focus:ring-purple-400 text-center">
             <h3>Pedro Ferreira Gomes</h3>
             <img
               src={imgPedro}
               alt="Imagem do participante Pedro Ferreira Gomes"
-              className="2xl:w-[20rem]"
+              className="2xl:w-[20rem] md:w-[15rem]"
             />
 
             <div className="flex w-[100%] justify-center">
@@ -28,7 +28,7 @@ export default function Participantes() {
                 <img
                   src={linkedin}
                   alt="Logo linkedin Pedro Ferreira"
-                  className="2xl:w-[4rem]"
+                  className="2xl:w-[4rem] md:w-[4rem]"
                 />
               </a>
               <a
@@ -39,7 +39,7 @@ export default function Participantes() {
                 <img
                   src={github}
                   alt="Logo GitHub Pedro Ferreira"
-                  className="2xl:w-[4rem]"
+                  className="2xl:w-[4rem] md:w-[4rem]"
                 />
               </a>
             </div>
@@ -49,7 +49,7 @@ export default function Participantes() {
             <img
               src={imgBiel}
               alt="Imagem do participante Pedro Ferreira Gomes"
-              className="2xl:w-[20rem]"
+              className="2xl:w-[20rem] md:w-[15rem]"
             />
             <div className="flex w-[100%] justify-center">
               <a
@@ -60,7 +60,7 @@ export default function Participantes() {
                 <img
                   src={linkedin}
                   alt="Logo linkedin Gabriel Bebé"
-                  className="2xl:w-[4rem]"
+                  className="2xl:w-[4rem] md:w-[4rem]"
                 />
               </a>
               <a
@@ -71,7 +71,7 @@ export default function Participantes() {
                 <img
                   src={github}
                   alt="Logo GitHub Gabriel Bebé"
-                  className="2xl:w-[4rem]"
+                  className="2xl:w-[4rem] md:w-[4rem]"
                 />
               </a>
             </div>
