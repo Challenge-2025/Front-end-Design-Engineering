@@ -1,11 +1,20 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import ajudaIcon from "../../img/ponto-de-interrogação-64.png";
 
+type LoginFormValues = {
+  cpf: string;
+  senha: string;
+};
+
 export default function Login() {
-  const [cpf, setCpf] = useState("");
-  const [senha, setSenha] = useState("");
   const navigate = useNavigate();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginFormValues>();
 
   function validarCPF(cpf: string) {
     cpf = cpf.replace(/\D/g, "");
@@ -26,22 +35,15 @@ export default function Login() {
     return true;
   }
 
-  function handleLogin(e: React.FormEvent) {
-    e.preventDefault();
-
-    if (!cpf || !senha) {
-      alert("Por favor, preencha todos os campos.");
-      return;
-    }
-
-    if (!validarCPF(cpf)) {
+  const onSubmit = (data: LoginFormValues) => {
+    if (!validarCPF(data.cpf)) {
       alert("CPF inválido. Verifique e tente novamente.");
       return;
     }
 
     alert("Login feito com sucesso!");
     navigate("/");
-  }
+  };
 
   return (
     <div className="min-h-screen text-white flex flex-col items-center justify-center px-2 sm:px-4">
@@ -71,7 +73,8 @@ export default function Login() {
           Acesse sua conta
         </h2>
 
-        <form onSubmit={handleLogin} className="space-y-4 sm:space-y-6">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
+          {/* CPF */}
           <div>
             <label
               htmlFor="cpf"
@@ -82,14 +85,25 @@ export default function Login() {
             <input
               type="text"
               id="cpf"
-              value={cpf}
-              onChange={(e) => setCpf(e.target.value)}
+              {...register("cpf", {
+                required: "O CPF é obrigatório",
+                pattern: {
+                  value: /^\d{11}$/,
+                  message: "CPF deve ter 11 dígitos numéricos",
+                },
+              })}
               placeholder="CPF"
-              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
+              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white 
+                border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 
+                placeholder-white/60 transition-all duration-300"
               autoComplete="on"
             />
+            {errors.cpf && (
+              <p className="text-red-400 text-sm">{errors.cpf.message}</p>
+            )}
           </div>
 
+          {/* Senha */}
           <div>
             <label
               htmlFor="senha"
@@ -100,14 +114,25 @@ export default function Login() {
             <input
               type="password"
               id="senha"
-              value={senha}
-              onChange={(e) => setSenha(e.target.value)}
+              {...register("senha", {
+                required: "A senha é obrigatória",
+                minLength: {
+                  value: 6,
+                  message: "A senha deve ter no mínimo 6 caracteres",
+                },
+              })}
               placeholder="Senha"
-              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
+              className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white 
+                border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 
+                placeholder-white/60 transition-all duration-300"
               autoComplete="off"
             />
+            {errors.senha && (
+              <p className="text-red-400 text-sm">{errors.senha.message}</p>
+            )}
           </div>
 
+          {/* Esqueceu senha */}
           <div className="text-right text-sm">
             <a
               href="/esqueceu-senha"
@@ -117,6 +142,7 @@ export default function Login() {
             </a>
           </div>
 
+          {/* Botão */}
           <button
             type="submit"
             className="w-full bg-purple-600/80 hover:bg-purple-700 text-white py-2 rounded-xl font-semibold shadow transition-all duration-300"
@@ -125,24 +151,26 @@ export default function Login() {
           </button>
         </form>
 
+        {/* Cadastro */}
         <p className="mt-4 sm:mt-6 text-center text-sm text-white/80">
           Não tem conta?{" "}
           <a
             href="/cadastro"
             className="underline hover:text-purple-700 transition-colors"
           >
-            Cadastre-se
+            Clique aqui
           </a>
         </p>
       </main>
 
+      {/* Ajuda */}
       <div className="mt-6 sm:mt-8 flex items-center justify-center gap-2">
         <a
           href="/ajuda"
-          className="flex items-center underline hover:text-purple-700 transition-colors"
+          className="flex items-center gap-2 underline hover:text-purple-700 transition-colors"
         >
+          <img src={ajudaIcon} alt="Ajuda" className="h-6" />
           Precisa de ajuda
-          <img src={ajudaIcon} alt="botão de ajuda" className="h-6 mr-2" />
         </a>
       </div>
     </div>

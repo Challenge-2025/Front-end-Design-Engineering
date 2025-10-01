@@ -1,8 +1,25 @@
 {
     "cliente":[
-        {"id":1,"nome":"José Cristiano Andrade","foto_perfil":"./public/img/perfil1.png","descricao":"Fiquei surpresa com a facilidade do site. As letras estavam grandes e consegui usar sozinha, sem precisar pedir ajuda pro meu vizinho. O botão do lembrete funcionou direitinho. Seria bom se o robô também falasse em áudio, mas mesmo assim ajudou muito.","avaliacao":5.0},
-        {"id":2,"nome":"Marina Alves de Jesus ","foto_perfil":"./public/img/perfil2.png","descricao":"Uso um celular simples e achei bom que consegui acessar mesmo com pouca internet. A resposta do chatbot veio rápido e pude confirmar minha consulta. Às vezes a mensagem demorava a carregar, mas não travou. Achei bem prático","avaliacao":3.5},
-        {"id":2,"nome":"Eduardo Roberto Valente","foto_perfil":"./public/img/perfil3.png","descricao":"Achei muito útil o lembrete que recebi. Sempre esqueço quando é a minha consulta, mas dessa vez fui avisado com dois dias de antecedência e consegui me organizar. O robô também respondeu minha dúvida de forma clara. Gostei bastante, principalmente porque não precisei ligar no hospital.","avaliacao":3.5}
+        {
+            "id": 1,
+            "nome": "José Cristiano Andrade",
+            "foto_perfil": "/img/perfil1.png",
+            "descricao": "Fiquei surpresa com a facilidade do site. As letras estavam grandes e consegui usar sozinha, sem precisar pedir ajuda pro meu vizinho. O botão do lembrete funcionou direitinho.",
+            "avaliacao": 5.0
+        },
+        {
+            "id": 2,
+            "nome": "Marina Alves de Jesus",
+            "foto_perfil": "/img/perfil2.png",
+            "descricao": "Uso um celular simples e achei bom que consegui acessar mesmo com pouca internet. A resposta do chatbot veio rápido e pude confirmar minha consulta. Achei bem prático.",
+            "avaliacao": 4.5
+        },
+        {
+            "id": 3,
+            "nome": "Eduardo Roberto Valente",
+            "foto_perfil": "/img/perfil3.png",
+            "descricao": "Achei muito útil o lembrete que recebi. Sempre esqueço quando é a minha consulta, mas dessa vez fui avisado com antecedência e consegui me organizar. Gostei bastante.",
+            "avaliacao": 4.8
+        }
     ]
 }
-
