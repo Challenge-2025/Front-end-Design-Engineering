@@ -25,6 +25,7 @@ export default function Participantes() {
               className="w-40 h-40 object-cover rounded-full border-4 border-purple-700 shadow mb-4"
             />
             <h3 className="text-xl font-bold text-[#3B2E41] mb-2">Pedro Ferreira Gomes</h3>
+            <p className="font-bold text-white">RM565824</p>
             <div className="flex gap-6 mt-2">
               <a
                 href="https://www.linkedin.com/in/pedro-ferreira-a762532bb"
@@ -62,6 +63,7 @@ export default function Participantes() {
               className="w-40 h-40 object-cover rounded-full border-4 border-purple-700 shadow mb-4"
             />
             <h3 className="text-xl font-bold text-[#3B2E41] mb-2">Gabriel Bebé Silva</h3>
+            <p className="font-bold text-white">RM562012</p>
             <div className="flex gap-6 mt-2">
               <a
                 href="https://www.linkedin.com/in/gabriel-bebé-298815238"
