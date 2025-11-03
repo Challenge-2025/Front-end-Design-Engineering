@@ -2,8 +2,8 @@
 
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import ajudaIcon from "../../img/ponto-de-interrogação-64.png";
-import TituloSecao from "../../components/TituloSecao/TituloSecao"; 
+import ajudaIcon from "../../../../img/ponto-de-interrogação-64.png";
+import TituloSecao from "../../../../components/TituloSecao/TituloSecao"; 
 
 type FormValues = {
   nome: string;

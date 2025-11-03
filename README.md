@@ -85,18 +85,12 @@ Para executar este projeto, você precisará de dois terminais rodando simultane
     ```
 
 4.  **Inicie o servidor de back-end (API):**
-    *Abra um terminal e execute:*
-    ```bash
-    npm run backend
     ```
-    *O servidor estará rodando em `http://localhost:5000`.*
-
-5.  **Inicie o servidor de front-end (Aplicação React):**
-    *Abra um **novo** terminal e execute:*
-    ```bash
-    npm run dev
+    Esta é a api que esta sendo consumida
+    api: https://domain-driven-design-using-java-2sem.onrender.com/
     ```
-    *A aplicação estará disponível em `http://localhost:5173` (ou outra porta indicada no terminal).*
+    
+    
 
 ---
 

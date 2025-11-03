@@ -1,7 +1,7 @@
-import imgPedro from "../../img/ferreira foto.jpg";
-import imgBiel from "../../img/gabrielfoto.jpg";
-import linkedin from "../../img/linkedin-icon.png";
-import github from "../../img/github-icon.png";
+import imgPedro from "../../../../img/ferreira foto.jpg";
+import imgBiel from "../../../../img/gabrielfoto.jpg";
+import linkedin from "../../../../img/linkedin-icon.png";
+import github from "../../../../img/github-icon.png";
 
 export default function Participantes() {
   return (
