@@ -31,9 +31,11 @@ export default function PaginaInicial() {
 
 
   return (
-    <main className="flex flex-col items-center text-black w-full h-[90vh] " style={{ fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" }}>
+    <main className="flex flex-col items-center text-black w-full " style={{ fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" }}>
     
-
+        <aside>
+            
+        </aside>
       
     </main>
   );
