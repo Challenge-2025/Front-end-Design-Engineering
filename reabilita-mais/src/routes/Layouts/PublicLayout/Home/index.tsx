@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Doutora from "../../img/img-doutora.png"; // <-- A importação está correta
-import type { TipoCliente } from "../../types/tipoClientes";
+import Doutora from "../../../../img/img-doutora.png"; // <-- A importação está correta
+import type { TipoCliente } from "../../../../types/tipoClientes";
 
 export default function Home() {
   const [cliente, setCliente] = useState<TipoCliente[]>([]);
@@ -26,7 +26,6 @@ export default function Home() {
 
   return (
     <main className="flex flex-col justify-center items-center text-black w-full gap-16 py-10">
-      
       {/* SEÇÃO "SOBRE NÓS" COMPLETA - USANDO A IMAGEM DA DOUTORA */}
       <article className="w-full max-w-6xl px-4">
         <section className="flex flex-col lg:flex-row items-center gap-8 w-full bg-white/10 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 p-8 md:p-12 transition-all duration-300">
@@ -42,15 +41,16 @@ export default function Home() {
             <div className="flex flex-col gap-4 text-white/90">
               <p>
                 A Reabilita+ é uma empresa especializada na oferta de serviços
-                terceirizados para clínicas de reabilitação. Nosso foco está em atender pessoas com deficiência física —
-                transitória ou definitiva — por meio de parcerias com instituições
-                que compartilham do nosso compromisso com a excelência no cuidado.
+                terceirizados para clínicas de reabilitação. Nosso foco está em
+                atender pessoas com deficiência física — transitória ou
+                definitiva — por meio de parcerias com instituições que
+                compartilham do nosso compromisso com a excelência no cuidado.
               </p>
               <p>
                 Contamos com uma equipe multidisciplinar altamente qualificada,
-                formada por profissionais dedicados e apaixonados pelo que fazem.
-                Trabalhamos nos bastidores para garantir que o cuidado chegue a
-                quem precisa — com respeito, empatia e esperança.
+                formada por profissionais dedicados e apaixonados pelo que
+                fazem. Trabalhamos nos bastidores para garantir que o cuidado
+                chegue a quem precisa — com respeito, empatia e esperança.
               </p>
             </div>
           </div>
@@ -86,8 +86,8 @@ export default function Home() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {cliente.map((c) => (
-            <Link 
-              to={`/cliente/${c.id}`} 
+            <Link
+              to={`/cliente/${c.id}`}
               key={c.id}
               className="bg-purple-800/50 backdrop-blur-md border-2 border-purple-400/50 rounded-2xl p-6 flex flex-col items-center text-center shadow-lg hover:scale-105 hover:shadow-purple-400/50 transition-all duration-300"
             >
@@ -96,7 +96,9 @@ export default function Home() {
                 alt={`Foto de perfil de ${c.nome}`}
                 className="w-24 h-24 rounded-full object-cover mb-4 border-4 border-white"
               />
-              <h3 className="text-white text-xl font-semibold mb-2">{c.nome}</h3>
+              <h3 className="text-white text-xl font-semibold mb-2">
+                {c.nome}
+              </h3>
               <p className="text-white/80 text-sm leading-relaxed flex-grow">
                 "{c.descricao}"
               </p>
