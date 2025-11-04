@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import CabecalhoPrivado from "../../../../components/PacienteComponents/CabecalhoPrivado/CabecalhoPrivado";
 import Rodape from "../../../../components/Rodape/Rodape";
+import CabecalhoDeAltenticidade from "../../../../components/PacienteComponents/CabecalhoDeAltenticidade/CabecalhoDeAltenticidade";
 
 export default function LayoutPrivado() {
   return (
@@ -9,6 +10,7 @@ export default function LayoutPrivado() {
         <CabecalhoPrivado />
       </>
       <div className="flex flex-col w-[100%] gap-[2rem]">
+        <CabecalhoDeAltenticidade/>
         <Outlet />
         <Rodape />
       </div>

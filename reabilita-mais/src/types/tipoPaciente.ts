@@ -1,7 +1,7 @@
 import type { TipoEndereco } from "./tipoEndereco";
 
 export type TipoPaciente = {
-    idPaciente:number;
+    id:number;
     nomeCompleto:string;
     cpf:string;
     email:string;

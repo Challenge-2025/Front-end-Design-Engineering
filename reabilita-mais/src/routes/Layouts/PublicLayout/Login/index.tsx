@@ -50,7 +50,7 @@ export default function Login() {
     const pacienteLogado = await loginPaciente(data.email, data.senha);
 
     if (pacienteLogado) {
-      setPaciente(pacienteLogado); // <- salva no contexto + localStorage
+      setPaciente(pacienteLogado);
       navigate("/pagina-inicial");
     } else {
       alert("Email ou senha incorretos!");
