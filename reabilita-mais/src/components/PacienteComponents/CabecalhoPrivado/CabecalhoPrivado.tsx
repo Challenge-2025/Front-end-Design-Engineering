@@ -4,7 +4,7 @@ import LogoReabilita from "../../../img/logo-branca-reabilita-sem-fundo.png";
 export default function CabecalhoPrivado() {
   return (
     <header
-      className=" bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500 h-[100vh] w-[15rem] flex flex-col items-center rounded-e-3xl border-r-[1px] border-b-[1px]
+      className="bg-[#6403a5] w-[15rem] flex flex-col items-center rounded-e-3xl border-r-[1px] border-b-[1px]
         border-t-[1px] gap-[1rem]"
     >
       <Link to="pagina-inicial">
