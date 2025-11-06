@@ -97,7 +97,7 @@ export default function PaginaInicial() {
           </p>
           <p>Endereço: {paciente?.endereco.logradouro}</p>
           <p>Num. Logradouro: {paciente?.endereco.numeroLogradouro}</p>
-          <div className="flex w-full h[2vh] justify-end"><Link to="/configuracoes"><img src={Engrenagem} alt="Botão de configurações" className="w-[2.5rem]"/></Link></div>
+          <div className="flex w-full h[2vh] justify-end"><Link to="/configuracao"><img src={Engrenagem} alt="Botão de configurações" className="w-[2.5rem]"/></Link></div>
           </div>
         </div>
       </aside>
