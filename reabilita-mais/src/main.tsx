@@ -19,6 +19,7 @@ import PaginaInicial from "./routes/Layouts/PrivateLayout/PacienteRoutes/PaginaI
 
 // 👇 import do contexto
 import { AuthProvider } from "../src/routes/Layouts/TemporaryBox/AuthProvider.tsx";
+import Configuracoes from "./routes/Layouts/PrivateLayout/PacienteRoutes/Configuracoes/index.tsx";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/pagina-inicial", element: <PaginaInicial /> },
       { path: "/consulta", element: <Consulta /> },
+      {path: "/configuracao", element: <Configuracoes/>}
     ],
   },
 ]);
