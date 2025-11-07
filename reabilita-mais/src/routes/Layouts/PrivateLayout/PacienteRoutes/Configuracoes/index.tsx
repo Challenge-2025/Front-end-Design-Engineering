@@ -7,14 +7,14 @@ import type { TipoEndereco } from "../../../../../types/tipoEndereco";
 const API_URL = import.meta.env.VITE_API_REABILITA;
 
 type FormDadosPaciente = {
-  id: number;
   nomeCompleto: string;
   cpf: string;
   email: string;
-  dataDeNascimento: string;
   telefone: string;
+  dataDeNascimento: string;
   pdc: string;
   endereco: TipoEndereco;
+  senha?: string;
 };
 
 export default function Configuracoes() {
@@ -23,41 +23,41 @@ export default function Configuracoes() {
   const [loading, setLoading] = useState(false);
   const [mensagem, setMensagem] = useState("");
 
-  // Quando carregar a página, preenche os campos
+  // preenche o form com os dados do paciente
   useEffect(() => {
-    if (paciente) {
-      reset({
-        nomeCompleto: paciente.nomeCompleto,
-        email: paciente.email,
-        telefone: paciente.telefone,
-        dataDeNascimento: paciente.dataDeNascimento,
-        pdc: paciente.pdc,
-      });
-    }
+    if (paciente) reset(paciente);
   }, [paciente, reset]);
 
-  // Função para atualizar dados
   const onSubmit = async (dados: FormDadosPaciente) => {
     if (!paciente) return;
-    setLoading(true);
     setMensagem("");
 
-    try {
-      const response = await fetch(
-        `${API_URL}/pacientes/${paciente.idPaciente}`,
-        {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(dados),
-        }
+    // 👉 Verifica se a senha foi informada
+    if (!dados.senha || dados.senha.trim() === "") {
+      setMensagem(
+        "⚠️ É necessário informar a senha para salvar as alterações."
       );
+      return;
+    }
 
-      if (!response.ok) throw new Error("Erro ao atualizar dados");
+    setLoading(true);
+
+    try {
+      const response = await fetch(`${API_URL}/pacientes`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...dados, id: paciente.id }),
+      });
+
+      if (!response.ok) {
+        const erroTexto = await response.text();
+        throw new Error(`Erro ${response.status}: ${erroTexto}`);
+      }
 
       const pacienteAtualizado = await response.json();
       setPaciente(pacienteAtualizado);
       setMensagem("✅ Dados atualizados com sucesso!");
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
       setMensagem("❌ Erro ao salvar alterações.");
     } finally {
@@ -66,85 +66,133 @@ export default function Configuracoes() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center text-white p-6 w-full">
-      <main className="w-full sm:w-[450px] bg-white/10 backdrop-blur-lg p-8 rounded-3xl shadow-2xl border border-white/20">
-        <h2 className="text-2xl font-bold text-center mb-6">
-          Configurações do Paciente
-        </h2>
+    <div className="w-full flex flex-col items-center text-white p-6 ">
+      <h2 className="text-2xl font-bold mb-6">Editar Dados</h2>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-          <div className=" grid grid-cols-1">
-            <div className="flex">
-              <div>
-                <div>
-                  <label className="block mb-1 font-bold text-sm text-white/80 font-bold">
-                    Nome completo
-                  </label>
-                  <input
-                    {...register("nomeCompleto")}
-                    className="w-full p-2 rounded-lg bg-white/20 border border-white/30 focus:ring-2 focus:ring-purple-400"
-                  />
-                </div>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="grid grid-cols-2 gap-4 w-full max-w-[600px] bg-white/10
+          backdrop-blur-xl
+          p-4 sm:p-8 md:p-10 lg:p-12 xl:p-14
+          rounded-3xl
+          shadow-2xl
+          border border-white/20
+          transition-all duration-300"
+      >
+        <div>
+          <label>Nome completo</label>
+          <input
+            {...register("nomeCompleto")}
+            className="w-full p-2 rounded-lg bg-white/20 border border-white/30"
+          />
+        </div>
 
-                <div>
-                  <label className="block mb-1 font-bold text-sm text-white/80 font-bold">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    {...register("email")}
-                    className="w-full p-2 rounded-lg bg-white/20 border border-white/30 focus:ring-2 focus:ring-purple-400"
-                  />
-                </div>
+        <div className="col-span-2">
+          <label>CPF</label>
+          <input
+            {...register("cpf")}
+            className="w-full p-2 rounded-lg bg-white/20 border border-white/30 text-gray-300 cursor-not-allowed"
+            readOnly
+          />
+          <p className="text-[0.7rem] text-[#a00000]">
+            ⚠️ Não é possível editar o CPF, pois é um identificador único. Entre
+            em contato com o nosso suporte para solicitar a alteração.
+          </p>
+        </div>
 
-                <div>
-                  <label className="block mb-1 font-bold text-sm text-white/80">
-                    Telefone
-                  </label>
-                  <input
-                    {...register("telefone")}
-                    className="w-full p-2 rounded-lg bg-white/20 border border-white/30 focus:ring-2 focus:ring-purple-400"
-                  />
-                </div>
-              </div>
+        <div>
+          <label>E-mail</label>
+          <input
+            type="email"
+            {...register("email")}
+            className="w-full p-2 rounded-lg bg-white/20 border border-white/30"
+          />
+        </div>
 
-              <div>
-                <div>
-                  <label className="block mb-1 font-bold text-sm text-white/80">
-                    Data de Nascimento
-                  </label>
-                  <input
-                    type="date"
-                    {...register("dataDeNascimento")}
-                    className="w-full p-2 rounded-lg bg-white/20 border border-white/30 focus:ring-2 focus:ring-purple-400"
-                  />
-                </div>
+        <div>
+          <label>Telefone</label>
+          <input
+            {...register("telefone")}
+            className="w-full p-2 rounded-lg bg-white/20 border border-white/30"
+          />
+        </div>
 
-                <div>
-                  <label className="block mb-1 font-bold text-sm text-white/80">
-                    PDC
-                  </label>
-                  <input
-                    {...register("pdc")}
-                    className="w-full p-2 rounded-lg bg-white/20 border border-white/30 focus:ring-2 focus:ring-purple-400"
-                  />
-                </div>
+        <div>
+          <label>Data de nascimento</label>
+          <input
+            type="date"
+            {...register("dataDeNascimento")}
+            className="w-full p-2 rounded-lg bg-white/20 border border-white/30"
+          />
+        </div>
 
-                <div>
-                  <label className="block mb-1 font-bold text-sm text-white/80">
-                    CPF
-                  </label>
-                  <input
-                    {...register("cpf")}
-                    className="w-full p-2 rounded-lg bg-white/20 border border-white/30 focus:ring-2 focus:ring-purple-400"
-                  />
-                </div>
-              </div>
-            </div>
+        <div>
+          <label>Possui deficiência?</label>
+          <select
+            {...register("pdc")}
+            className="w-full p-2 rounded-lg bg-white/20 border border-white/30"
+          >
+            <option value="">Selecione</option>
+            <option value="SIM">Sim</option>
+            <option value="NAO">Não</option>
+          </select>
+        </div>
 
-            <div></div>
-          </div>
+        {/* Endereço */}
+        <div>
+          <label>CEP</label>
+          <input
+            {...register("endereco.cep")}
+            className="w-full p-2 rounded-lg bg-white/20 border border-white/30"
+          />
+        </div>
+        <div>
+          <label>Logradouro</label>
+          <input
+            {...register("endereco.logradouro")}
+            className="w-full p-2 rounded-lg bg-white/20 border border-white/30"
+          />
+        </div>
+        <div>
+          <label>Número</label>
+          <input
+            {...register("endereco.numeroLogradouro")}
+            className="w-full p-2 rounded-lg bg-white/20 border border-white/30"
+          />
+        </div>
+        <div>
+          <label>Complemento</label>
+          <input
+            {...register("endereco.complemento")}
+            className="w-full p-2 rounded-lg bg-white/20 border border-white/30"
+          />
+        </div>
+        <div>
+          <label>Bairro</label>
+          <input
+            {...register("endereco.bairro")}
+            className="w-full p-2 rounded-lg bg-white/20 border border-white/30"
+          />
+        </div>
+        <div>
+          <label>Cidade</label>
+          <input
+            {...register("endereco.cidade")}
+            className="w-full p-2 rounded-lg bg-white/20 border border-white/30"
+          />
+        </div>
 
+        {/* Senha */}
+        <div>
+          <label>Senha</label>
+          <input
+            type="password"
+            {...register("senha")}
+            className="w-full p-2 rounded-lg bg-white/20 border border-white/30"
+          />
+        </div>
+
+        <div className="col-span-2 mt-4">
           <button
             type="submit"
             disabled={loading}
@@ -162,18 +210,18 @@ export default function Configuracoes() {
               "Salvar Alterações"
             )}
           </button>
-        </form>
 
-        {mensagem && (
-          <p
-            className={`text-center mt-4 font-medium ${
-              mensagem.startsWith("✅") ? "text-green-400" : "text-red-400"
-            }`}
-          >
-            {mensagem}
-          </p>
-        )}
-      </main>
+          {mensagem && (
+            <p
+              className={`text-center mt-4 font-medium ${
+                mensagem.startsWith("✅") ? "text-green-400" : "text-red-400"
+              }`}
+            >
+              {mensagem}
+            </p>
+          )}
+        </div>
+      </form>
     </div>
   );
 }
