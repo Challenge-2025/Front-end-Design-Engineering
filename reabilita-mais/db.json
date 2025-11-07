@@ -1,25 +1,67 @@
 {
-    "cliente":[
-        {
-            "id": 1,
-            "nome": "José Cristiano Andrade",
-            "foto_perfil": "/img/perfil1.png",
-            "descricao": "Fiquei surpresa com a facilidade do site. As letras estavam grandes e consegui usar sozinha, sem precisar pedir ajuda pro meu vizinho. O botão do lembrete funcionou direitinho.",
-            "avaliacao": 5.0
-        },
-        {
-            "id": 2,
-            "nome": "Marina Alves de Jesus",
-            "foto_perfil": "/img/perfil2.png",
-            "descricao": "Uso um celular simples e achei bom que consegui acessar mesmo com pouca internet. A resposta do chatbot veio rápido e pude confirmar minha consulta. Achei bem prático.",
-            "avaliacao": 4.5
-        },
-        {
-            "id": 3,
-            "nome": "Eduardo Roberto Valente",
-            "foto_perfil": "/img/perfil3.png",
-            "descricao": "Achei muito útil o lembrete que recebi. Sempre esqueço quando é a minha consulta, mas dessa vez fui avisado com antecedência e consegui me organizar. Gostei bastante.",
-            "avaliacao": 4.8
-        }
-    ]
+  "cliente": [
+    {
+      "id": 1,
+      "nome": "José Cristiano Andrade",
+      "foto_perfil": "/img/perfil1.png",
+      "descricao": "Fiquei surpresa com a facilidade do site. As letras estavam grandes e consegui usar sozinha, sem precisar pedir ajuda pro meu vizinho. O botão do lembrete funcionou direitinho.",
+      "avaliacao": 5.0
+    },
+    {
+      "id": 2,
+      "nome": "Marina Alves de Jesus",
+      "foto_perfil": "/img/perfil2.png",
+      "descricao": "Uso um celular simples e achei bom que consegui acessar mesmo com pouca internet. A resposta do chatbot veio rápido e pude confirmar minha consulta. Achei bem prático.",
+      "avaliacao": 4.5
+    },
+    {
+      "id": 3,
+      "nome": "Eduardo Roberto Valente",
+      "foto_perfil": "/img/perfil3.png",
+      "descricao": "Achei muito útil o lembrete que recebi. Sempre esqueço quando é a minha consulta, mas dessa vez fui avisado com antecedência e consegui me organizar. Gostei bastante.",
+      "avaliacao": 4.8
+    }
+  ],
+  "consultas": [
+    {
+      "id": 1,
+      "pacienteId": 1,
+      "especialidade": "Fisioterapia Motora",
+      "medico": "Dr. Arnaldo Costa",
+      "data": "2025-11-10T09:00:00",
+      "status": "Agendada"
+    },
+    {
+      "id": 2,
+      "pacienteId": 1,
+      "especialidade": "Terapia Ocupacional",
+      "medico": "Dra. Beatriz Lima",
+      "data": "2025-11-12T14:30:00",
+      "status": "Agendada"
+    },
+    {
+      "id": 3,
+      "pacienteId": 1,
+      "especialidade": "Fonoaudiologia",
+      "medico": "Dra. Carla Dias",
+      "data": "2025-11-15T11:00:00",
+      "status": "Agendada"
+    },
+    {
+      "id": 4,
+      "pacienteId": 1,
+      "especialidade": "Fisioterapia Motora",
+      "medico": "Dr. Arnaldo Costa",
+      "data": "2025-10-28T09:00:00",
+      "status": "Realizada"
+    },
+    {
+      "id": 5,
+      "pacienteId": 2,
+      "especialidade": "Acupuntura",
+      "medico": "Dr. Hélio Borges",
+      "data": "2025-11-11T10:00:00",
+      "status": "Agendada"
+    }
+  ]
 }
