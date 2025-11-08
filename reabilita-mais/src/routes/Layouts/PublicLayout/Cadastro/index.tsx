@@ -4,34 +4,76 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import ajudaIcon from "../../../../img/ponto-de-interrogação-64.png";
 import TituloSecao from "../../../../components/TituloSecao/TituloSecao"; 
+import type { TipoEndereco } from "../../../../types/tipoEndereco";
+import type { TipoPaciente } from "../../../../types/tipoPaciente";
+
+const API_URL = import.meta.env.VITE_API_REABILITA;
 
 type FormValues = {
-  nome: string;
+  nomeCompleto: string;
   cpf: string;
   email: string;
   telefone: string;
-  nascimento: string;
-  senha: string;
-  confirmarSenha: string;
-  deficiencia: string;
-  cep: string;
-  logradouro: string;
-  numero: string;
-  complemento?: string;
-  bairro: string;
-  cidade: string;
+  dataDeNascimento: string;
+  pdc: string;
+  endereco: TipoEndereco;
+  senha?: string;
 };
 
 export default function Cadastro() {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<FormValues>();
+  const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
   const navigate = useNavigate();
 
-  const senha = watch("senha");
-
   const onSubmit = (data: FormValues) => {
-    console.log("Dados do formulário:", data); 
-    alert("Cadastro realizado com sucesso!");
-    navigate("/login");
+    const payload: Omit<TipoPaciente, "id"> & { senha?: string; endereco: Omit<TipoEndereco, "idPaciente"> } = {
+      nomeCompleto: data.nomeCompleto,
+      cpf: data.cpf,
+      email: data.email,
+      dataDeNascimento: data.dataDeNascimento,
+      telefone: data.telefone,
+      pdc: data.pdc,
+      endereco: {
+        logradouro: data.endereco.logradouro,
+        numeroLogradouro: data.endereco.numeroLogradouro,
+        complemento: data.endereco.complemento ?? "",
+        bairro: data.endereco.bairro,
+        cidade: data.endereco.cidade,
+        cep: data.endereco.cep,
+        idPaciente: 0, // Valor temporário, será atribuído pelo backend após cadastro
+      },
+      senha: data.senha,
+    };
+
+    const criarPaciente = async (body: typeof payload): Promise<TipoPaciente | null> => {
+      try {
+        const resp = await fetch(`${API_URL}/pacientes`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+
+        if (!resp.ok) {
+          const text = await resp.text();
+          throw new Error(text || "Falha ao criar paciente.");
+        }
+
+        const created: TipoPaciente = await resp.json();
+        return created;
+      } catch (err) {
+        console.error("Erro ao criar paciente:", err);
+        return null;
+      }
+    };
+
+    (async () => {
+      const result = await criarPaciente(payload);
+      if (result) {
+        alert("Cadastro realizado com sucesso!");
+        navigate("/login");
+      } else {
+        alert("Falha ao cadastrar. Verifique os dados e tente novamente.");
+      }
+    })();
   };
 
   return (
@@ -58,11 +100,11 @@ export default function Cadastro() {
           <fieldset className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <TituloSecao titulo="Dados Pessoais" /> 
             <div>
-              <label htmlFor="nome" className="block mb-2 text-sm font-medium text-white/80">Nome completo</label>
-              <input type="text" id="nome" {...register("nome", { required: "Nome é obrigatório" })} placeholder="Seu nome"
+              <label htmlFor="nomeCompleto" className="block mb-2 text-sm font-medium text-white/80">Nome completo</label>
+              <input type="text" id="nomeCompleto" {...register("nomeCompleto", { required: "Nome é obrigatório" })} placeholder="Seu nome"
                 className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
               />
-              {errors.nome && <p className="text-red-400 text-sm mt-1">{errors.nome.message}</p>}
+              {errors.nomeCompleto && <p className="text-red-400 text-sm mt-1">{errors.nomeCompleto.message}</p>}
             </div>
 
             <div>
@@ -90,73 +132,73 @@ export default function Cadastro() {
             </div>
 
             <div>
-              <label htmlFor="nascimento" className="block mb-2 text-sm font-medium text-white/80">Data de nascimento</label>
-              <input type="date" id="nascimento" {...register("nascimento", { required: "Data de nascimento é obrigatória" })}
+              <label htmlFor="dataDeNascimento" className="block mb-2 text-sm font-medium text-white/80">Data de nascimento</label>
+              <input type="date" id="dataDeNascimento" {...register("dataDeNascimento", { required: "Data de nascimento é obrigatória" })}
                 className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
               />
-              {errors.nascimento && <p className="text-red-400 text-sm mt-1">{errors.nascimento.message}</p>}
+              {errors.dataDeNascimento && <p className="text-red-400 text-sm mt-1">{errors.dataDeNascimento.message}</p>}
             </div>
 
              <div>
-              <label htmlFor="deficiencia" className="block mb-2 text-sm font-medium text-white/80">Possui deficiência?</label>
-              <select id="deficiencia" {...register("deficiencia", { required: "Selecione uma opção" })}
+              <label htmlFor="pdc" className="block mb-2 text-sm font-medium text-white/80">Possui deficiência?</label>
+              <select id="pdc" {...register("pdc", { required: "Selecione uma opção" })}
                 className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all duration-300" defaultValue=""
               >
                 <option value="" disabled className="text-gray-500">Selecione</option>
                 <option value="SIM" className="text-gray-800">Sim</option>
                 <option value="NAO" className="text-gray-800">Não</option>
               </select>
-              {errors.deficiencia && <p className="text-red-400 text-sm mt-1">{errors.deficiencia.message}</p>}
+              {errors.pdc && <p className="text-red-400 text-sm mt-1">{errors.pdc.message}</p>}
             </div>
           </fieldset>
           
           <fieldset className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <TituloSecao titulo="Endereço" /> 
              <div>
-              <label htmlFor="cep" className="block mb-2 text-sm font-medium text-white/80">CEP</label>
-              <input type="text" id="cep" {...register("cep", { required: "CEP é obrigatório" })} placeholder="00000-000"
+              <label htmlFor="endereco.cep" className="block mb-2 text-sm font-medium text-white/80">CEP</label>
+              <input type="text" id="endereco.cep" {...register("endereco.cep", { required: "CEP é obrigatório" })} placeholder="00000-000"
                 className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
               />
-              {errors.cep && <p className="text-red-400 text-sm mt-1">{errors.cep.message}</p>}
+              {errors.endereco?.cep && <p className="text-red-400 text-sm mt-1">{errors.endereco?.cep?.message}</p>}
             </div>
             
             <div>
-              <label htmlFor="logradouro" className="block mb-2 text-sm font-medium text-white/80">Logradouro</label>
-              <input type="text" id="logradouro" {...register("logradouro", { required: "Logradouro é obrigatório" })} placeholder="Rua, Avenida, etc."
+              <label htmlFor="endereco.logradouro" className="block mb-2 text-sm font-medium text-white/80">Logradouro</label>
+              <input type="text" id="endereco.logradouro" {...register("endereco.logradouro", { required: "Logradouro é obrigatório" })} placeholder="Rua, Avenida, etc."
                 className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
               />
-              {errors.logradouro && <p className="text-red-400 text-sm mt-1">{errors.logradouro.message}</p>}
+              {errors.endereco?.logradouro && <p className="text-red-400 text-sm mt-1">{errors.endereco?.logradouro?.message}</p>}
             </div>
 
             <div>
-              <label htmlFor="numero" className="block mb-2 text-sm font-medium text-white/80">Número</label>
-              <input type="text" id="numero" {...register("numero", { required: "Número é obrigatório" })} placeholder="Ex: 123"
+              <label htmlFor="endereco.numeroLogradouro" className="block mb-2 text-sm font-medium text-white/80">Número</label>
+              <input type="text" id="endereco.numeroLogradouro" {...register("endereco.numeroLogradouro", { required: "Número é obrigatório" })} placeholder="Ex: 123"
                 className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
               />
-              {errors.numero && <p className="text-red-400 text-sm mt-1">{errors.numero.message}</p>}
+              {errors.endereco?.numeroLogradouro && <p className="text-red-400 text-sm mt-1">{errors.endereco?.numeroLogradouro?.message}</p>}
             </div>
 
             <div>
-              <label htmlFor="complemento" className="block mb-2 text-sm font-medium text-white/80">Complemento</label>
-              <input type="text" id="complemento" {...register("complemento")} placeholder="Apto, Bloco, etc. (Opcional)"
+              <label htmlFor="endereco.complemento" className="block mb-2 text-sm font-medium text-white/80">Complemento</label>
+              <input type="text" id="endereco.complemento" {...register("endereco.complemento")} placeholder="Apto, Bloco, etc. (Opcional)"
                 className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
               />
             </div>
 
             <div>
-              <label htmlFor="bairro" className="block mb-2 text-sm font-medium text-white/80">Bairro</label>
-              <input type="text" id="bairro" {...register("bairro", { required: "Bairro é obrigatório" })} placeholder="Seu bairro"
+              <label htmlFor="endereco.bairro" className="block mb-2 text-sm font-medium text-white/80">Bairro</label>
+              <input type="text" id="endereco.bairro" {...register("endereco.bairro", { required: "Bairro é obrigatório" })} placeholder="Seu bairro"
                 className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
               />
-              {errors.bairro && <p className="text-red-400 text-sm mt-1">{errors.bairro.message}</p>}
+              {errors.endereco?.bairro && <p className="text-red-400 text-sm mt-1">{errors.endereco?.bairro?.message}</p>}
             </div>
 
             <div>
-              <label htmlFor="cidade" className="block mb-2 text-sm font-medium text-white/80">Cidade</label>
-              <input type="text" id="cidade" {...register("cidade", { required: "Cidade é obrigatória" })} placeholder="Sua cidade"
+              <label htmlFor="endereco.cidade" className="block mb-2 text-sm font-medium text-white/80">Cidade</label>
+              <input type="text" id="endereco.cidade" {...register("endereco.cidade", { required: "Cidade é obrigatória" })} placeholder="Sua cidade"
                 className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
               />
-              {errors.cidade && <p className="text-red-400 text-sm mt-1">{errors.cidade.message}</p>}
+              {errors.endereco?.cidade && <p className="text-red-400 text-sm mt-1">{errors.endereco?.cidade?.message}</p>}
             </div>
           </fieldset>
 
@@ -168,17 +210,6 @@ export default function Cadastro() {
                 className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
               />
               {errors.senha && <p className="text-red-400 text-sm mt-1">{errors.senha.message}</p>}
-            </div>
-
-            <div>
-              <label htmlFor="confirmarSenha" className="block mb-2 text-sm font-medium text-white/80">Confirmar senha</label>
-              <input type="password" id="confirmarSenha" {...register("confirmarSenha", { 
-                required: "Confirmação de senha é obrigatória",
-                validate: value => value === senha || "As senhas não coincidem"
-              })} placeholder="Repita a senha"
-                className="w-full px-3 sm:px-4 py-2 rounded-xl bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 placeholder-white/60 transition-all duration-300"
-              />
-              {errors.confirmarSenha && <p className="text-red-400 text-sm mt-1">{errors.confirmarSenha.message}</p>}
             </div>
           </fieldset>
           
