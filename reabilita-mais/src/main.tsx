@@ -5,22 +5,22 @@ import { StrictMode } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App.tsx";
-import Home from "./routes/Layouts/PublicLayout/Home/index.tsx";
-import Error from "./routes/Error/index.tsx";
-import Participantes from "./routes/Layouts/PublicLayout/Participantes/index.tsx";
-import Login from "./routes/Layouts/PublicLayout/Login/index.tsx";
-import Cadastro from "./routes/Layouts/PublicLayout/Cadastro/index.tsx";
-import Ajuda from "./routes/Layouts/PublicLayout/Ajuda/index.tsx";
-import ClienteDetalhe from "./routes/Layouts/PublicLayout/ClienteDetalhe/index.tsx";
+import Home from "./routes/Layouts/PublicLayout/Home/Home.tsx";
+import Error from "./routes/Error/Error.tsx";
+import Participantes from "./routes/Layouts/PublicLayout/Participantes/Participantes.tsx";
+import Login from "./routes/Layouts/PublicLayout/Login/Login.tsx";
+import Cadastro from "./routes/Layouts/PublicLayout/Cadastro/Cadastro.tsx";
+import Ajuda from "./routes/Layouts/PublicLayout/Ajuda/Ajuda.tsx";
+import ClienteDetalhe from "./routes/Layouts/PublicLayout/ClienteDetalhe/ClienteDetalhe.tsx";
+import LayoutPrivado from "./routes/Layouts/PrivateLayout/LayoutPrivado/LayoutPrivado.tsx";
+import Consulta from "./routes/Layouts/PrivateLayout/PacienteRoutes/Consulta/Consulta.tsx";
+import PaginaInicial from "./routes/Layouts/PrivateLayout/PacienteRoutes/PaginaInicial/PaginaInicial.tsx";
 import "./globals.css";
-import LayoutPrivado from "./routes/Layouts/PrivateLayout/LayoutPrivado/index.tsx";
-import Consulta from "./routes/Layouts/PrivateLayout/PacienteRoutes/Consulta/index.tsx";
-import PaginaInicial from "./routes/Layouts/PrivateLayout/PacienteRoutes/PaginaInicial/index.tsx";
 
 // 👇 import do contexto
 import { AuthProvider } from "../src/routes/Layouts/TemporaryBox/AuthProvider.tsx";
-import Configuracoes from "./routes/Layouts/PrivateLayout/PacienteRoutes/Configuracoes/index.tsx";
-import RotaPrivada from "./routes/Layouts/PrivateLayout/RotasPrivadas/index.tsx";
+import Configuracoes from "./routes/Layouts/PrivateLayout/PacienteRoutes/Configuracoes/Configuracoes.tsx";
+import RotaPrivada from "./routes/Layouts/PrivateLayout/RotasPrivadas/RotasPrivadas.tsx";
 
 const router = createBrowserRouter([
   {
