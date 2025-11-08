@@ -1,8 +1,8 @@
 export type TipoConsulta = {
-  id: number;
+  idConsulta: number;
   idPaciente: number;
   especialidade: string;
-  medico: string;
+  nmMedico: string;
   dataConsulta: string;
-  status: "Agendada" | "Realizada" | "Cancelada";
+  status: "AGENDADA" | "REALIZADA" | "CANCELADA";
 };

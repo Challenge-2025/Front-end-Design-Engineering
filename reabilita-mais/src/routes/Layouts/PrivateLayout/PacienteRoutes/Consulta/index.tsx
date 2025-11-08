@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import type { TipoConsulta } from "../../../../../types/tipoConsulta";
+import { useAuth } from "../../../../Layouts/Hook/useAuth";
 
-const PACIENTE_ID_LOGADO = 1;
+const API_URL = import.meta.env.VITE_API_REABILITA;
 
 export default function MinhasConsultas() {
   const [consultas, setConsultas] = useState<TipoConsulta[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { paciente } = useAuth();
 
   const formatarData = (dataISO?: string) => {
     if (!dataISO) return "Data não informada";
@@ -29,7 +31,7 @@ export default function MinhasConsultas() {
       setError(null);
       try {
         const response = await fetch(
-          `http://localhost:5000/consultas?idPaciente=${PACIENTE_ID_LOGADO}`
+          `${API_URL}/consultas/paciente/${paciente?.id}/todas`
         );
 
         if (!response.ok) {
@@ -80,12 +82,12 @@ export default function MinhasConsultas() {
           <div className="space-y-4">
             {consultasRecentes.map((consulta) => (
               <div
-                key={consulta.id}
+                key={consulta.idConsulta}
                 className="p-4 bg-black/20 rounded-lg border border-white/10 flex justify-between items-center"
               >
                 <div>
                   <p className="font-bold text-lg">{consulta.especialidade}</p>
-                  <p className="text-sm text-white/80">com {consulta.medico}</p>
+                  <p className="text-sm text-white/80">com {consulta.nmMedico}</p>
                 </div>
                 <div className="text-right">
                   <p className="font-semibold">
@@ -93,9 +95,9 @@ export default function MinhasConsultas() {
                   </p>
                   <span
                     className={`text-xs font-bold px-2 py-0.5 rounded-full ${
-                      consulta.status === "Agendada"
+                      consulta.status === "AGENDADA"
                         ? "bg-green-500/80"
-                        : consulta.status === "Realizada"
+                        : consulta.status === "REALIZADA"
                         ? "bg-gray-500/80"
                         : "bg-red-500/80"
                     }`}
@@ -129,20 +131,20 @@ export default function MinhasConsultas() {
               {consultas.length > 0 ? (
                 consultas.map((consulta) => (
                   <tr
-                    key={consulta.id}
+                    key={consulta.idConsulta}
                     className="border-b border-white/10 hover:bg-white/10"
                   >
                     <td className="p-3">
                       {formatarData(consulta.dataConsulta)}
                     </td>
                     <td className="p-3">{consulta.especialidade}</td>
-                    <td className="p-3">{consulta.medico}</td>
+                    <td className="p-3">{consulta.nmMedico}</td>
                     <td className="p-3">
                       <span
                         className={`text-xs font-bold px-2 py-0.5 rounded-full ${
-                          consulta.status === "Agendada"
+                          consulta.status === "AGENDADA"
                             ? "bg-green-500/80"
-                            : consulta.status === "Realizada"
+                            : consulta.status === "REALIZADA"
                             ? "bg-gray-500/80"
                             : "bg-red-500/80"
                         }`}
