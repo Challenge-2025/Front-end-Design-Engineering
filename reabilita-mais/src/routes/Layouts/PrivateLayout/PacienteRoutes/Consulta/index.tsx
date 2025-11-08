@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import type { TipoConsulta } from "../../../../../types/tipoConsulta";
 
 const PACIENTE_ID_LOGADO = 1;
@@ -71,18 +70,6 @@ export default function MinhasConsultas() {
 
   return (
     <main className="w-full max-w-6xl text-white flex flex-col items-center px-4 py-10 gap-12">
-      <div className="w-full">
-        <Link
-          to="/agendar-consulta"
-          className="
-            w-full block text-center px-8 py-4 
-            bg-purple-600 hover:bg-purple-700 
-            text-white text-lg font-bold rounded-xl shadow-lg 
-            transition-all duration-300"
-        >
-          Agendar Nova Consulta
-        </Link>
-      </div>
 
       <section className="w-full bg-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white/20">
         <h2 className="text-3xl font-bold mb-6 text-white drop-shadow">
