@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { TipoConsulta } from "../../../../../types/tipoConsulta";
 import { useAuth } from "../../../../Layouts/Hook/useAuth";
-import Engrenagem from "../../../../../img/engrenagem.png"
+import Engrenagem from "../../../../../img/engrenagem.png";
 import { Link } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_REABILITA;
@@ -62,9 +62,6 @@ export default function PaginaInicial() {
                 </td>
                 <td className="px-4 py-2">{consulta.status}</td>
                 <td className="px-4 py-2">{consulta.idPaciente}</td>
-                <td className="px-4 py-2 text-purple-400 cursor-pointer hover:text-purple-300">
-                  ✏️
-                </td>
               </tr>
             ))}
           </tbody>
@@ -84,20 +81,32 @@ export default function PaginaInicial() {
           <h2 className="text-[1.5rem] font-bold">Dados</h2>
           <div className="text-start font-bold">
             <p>Nome: {paciente?.nomeCompleto}</p>
-          <p>CPF: {paciente?.cpf}</p>
-          <p>
-            Data de Nascimento:{new Date(paciente?.dataDeNascimento).toLocaleDateString("pt-br")}
-          </p>
-          <p>
-            Idade:{" "}
-            {paciente?.dataDeNascimento
-              ? new Date().getFullYear() -
-                new Date(paciente.dataDeNascimento).getFullYear()
-              : "—"}
-          </p>
-          <p>Endereço: {paciente?.endereco.logradouro}</p>
-          <p>Num. Logradouro: {paciente?.endereco.numeroLogradouro}</p>
-          <div className="flex w-full h[2vh] justify-end"><Link to="/configuracao"><img src={Engrenagem} alt="Botão de configurações" className="w-[2.5rem]"/></Link></div>
+            <p>CPF: {paciente?.cpf}</p>
+            <p>
+              Data de Nascimento:{" "}
+              {new Date(paciente?.dataDeNascimento ?? "").toLocaleDateString(
+                "pt-br"
+              )}
+            </p>
+
+            <p>
+              Idade:{" "}
+              {paciente?.dataDeNascimento
+                ? new Date().getFullYear() -
+                  new Date(paciente.dataDeNascimento).getFullYear()
+                : "—"}
+            </p>
+            <p>Endereço: {paciente?.endereco.logradouro}</p>
+            <p>Num. Logradouro: {paciente?.endereco.numeroLogradouro}</p>
+            <div className="flex w-full h[2vh] justify-end">
+              <Link to="/configuracao">
+                <img
+                  src={Engrenagem}
+                  alt="Botão de configurações"
+                  className="w-[2.5rem]"
+                />
+              </Link>
+            </div>
           </div>
         </div>
       </aside>
