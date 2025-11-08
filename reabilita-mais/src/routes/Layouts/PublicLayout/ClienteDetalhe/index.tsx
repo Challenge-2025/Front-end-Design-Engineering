@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import type { TipoCliente } from "../../types/tipoClientes";
+import type { TipoCliente } from "../../../../types/tipoClientes";
 
 export default function ClienteDetalhe() {
   const { id } = useParams<{ id: string }>(); 
