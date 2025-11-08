@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { TipoConsulta } from "../../../../../types/tipoConsulta";
 import { useAuth } from "../../../../Layouts/Hook/useAuth";
+import ModalNovaConsulta from "../../../../../components/ModalNovaConsulta";
 
 const API_URL = import.meta.env.VITE_API_REABILITA;
 
@@ -9,6 +10,11 @@ export default function MinhasConsultas() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const { paciente } = useAuth();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleNovaConsulta = (novaConsulta: any) => {
+    setConsultas((prev) => [...prev, novaConsulta]);
+  };
 
   const formatarData = (dataISO?: string) => {
     if (!dataISO) return "Data não informada";
@@ -40,7 +46,6 @@ export default function MinhasConsultas() {
 
         const data: TipoConsulta[] = await response.json();
 
-      
         data.sort(
           (a, b) =>
             new Date(b.dataConsulta ?? "").getTime() -
@@ -72,7 +77,6 @@ export default function MinhasConsultas() {
 
   return (
     <main className="w-full max-w-6xl text-white flex flex-col items-center px-4 py-10 gap-12">
-
       <section className="w-full bg-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white/20">
         <h2 className="text-3xl font-bold mb-6 text-white drop-shadow">
           Suas Próximas Consultas
@@ -87,7 +91,9 @@ export default function MinhasConsultas() {
               >
                 <div>
                   <p className="font-bold text-lg">{consulta.especialidade}</p>
-                  <p className="text-sm text-white/80">com {consulta.nmMedico}</p>
+                  <p className="text-sm text-white/80">
+                    com {consulta.nmMedico}
+                  </p>
                 </div>
                 <div className="text-right">
                   <p className="font-semibold">
@@ -156,10 +162,7 @@ export default function MinhasConsultas() {
                 ))
               ) : (
                 <tr>
-                  <td
-                    colSpan={4}
-                    className="p-3 text-center text-white/70"
-                  >
+                  <td colSpan={4} className="p-3 text-center text-white/70">
                     Nenhuma consulta encontrada.
                   </td>
                 </tr>
@@ -168,6 +171,19 @@ export default function MinhasConsultas() {
           </table>
         </div>
       </section>
+      <div className="w-full">
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
+        >
+          + Nova Consulta
+        </button>
+        <ModalNovaConsulta
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          onCriarConsulta={handleNovaConsulta}
+        />
+      </div>
     </main>
   );
 }
