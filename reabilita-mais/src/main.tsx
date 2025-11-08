@@ -20,6 +20,7 @@ import PaginaInicial from "./routes/Layouts/PrivateLayout/PacienteRoutes/PaginaI
 // 👇 import do contexto
 import { AuthProvider } from "../src/routes/Layouts/TemporaryBox/AuthProvider.tsx";
 import Configuracoes from "./routes/Layouts/PrivateLayout/PacienteRoutes/Configuracoes/index.tsx";
+import RotaPrivada from "./routes/Layouts/PrivateLayout/RotasPrivadas/index.tsx";
 
 const router = createBrowserRouter([
   {
@@ -37,12 +38,17 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <LayoutPrivado />,
-    errorElement: <Error />,
+    element: <RotaPrivada />, 
     children: [
-      { path: "/pagina-inicial", element: <PaginaInicial /> },
-      { path: "/consulta", element: <Consulta /> },
-      {path: "/configuracao", element: <Configuracoes/>}
+      {
+        element: <LayoutPrivado />,
+        errorElement: <Error />,
+        children: [
+          { path: "/pagina-inicial", element: <PaginaInicial /> },
+          { path: "/consulta", element: <Consulta /> },
+          { path: "/configuracao", element: <Configuracoes /> },
+        ],
+      },
     ],
   },
 ]);
