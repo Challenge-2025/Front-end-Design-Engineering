@@ -1,8 +1,8 @@
 # Reabilita+
 
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-purple)
+![Status](https://img.shields.io/badge/status-concluído-purple)
 
-Projeto desenvolvido para o Challenge de Análise e Desenvolvimento de Sistemas da FIAP (2º Semestre). A Reabilita+ é uma plataforma SPA (Single Page Application) que visa conectar pacientes a clínicas de reabilitação, otimizando o acesso a serviços de saúde especializados e facilitando a comunicação.
+Projeto desenvolvido para o Challenge de Análise e Desenvolvimento de Sistemas da FIAP (1º Ano - 2º Semestre). A Reabilita+ é uma plataforma SPA (Single Page Application) que visa conectar pacientes a clínicas de reabilitação, otimizando o acesso a serviços de saúde especializados e facilitando o agendamento de consultas.
 
 ---
 
@@ -19,9 +19,15 @@ Projeto desenvolvido para o Challenge de Análise e Desenvolvimento de Sistemas 
 
 ### 📖 Sobre o Projeto
 
-A Reabilita+ é uma empresa especializada na oferta de serviços terceirizados para clínicas de reabilitação. Nosso foco está em atender pessoas com deficiência física — transitória ou definitiva — por meio de parcerias com instituições que compartilham do nosso compromisso com a excelência no cuidado. Acreditamos no potencial de cada indivíduo para evoluir, superar barreiras e reconquistar sua autonomia.
+A Reabilita+ é uma empresa especializada na oferta de serviços terceirizados para clínicas de reabilitação. Nosso foco está em atender pessoas com deficiência física — transitória ou definitiva — por meio de parcerias com instituições que compartilham do nosso compromisso com a excelência no cuidado.
 
-Esta aplicação foi construída como uma SPA (Single Page Application) moderna, responsiva e acessível, utilizando as tecnologias mais atuais do ecossistema front-end. O projeto inclui funcionalidades como cadastro e login de usuários, consulta de informações, uma central de ajuda com FAQ interativo e uma seção para encontrar clínicas próximas.
+Esta aplicação foi construída como uma SPA (Single Page Application) moderna e responsiva, utilizando as tecnologias mais atuais do ecossistema front-end. O projeto se conecta a uma API Java (criada na disciplina de Domain-Driven Design) para funcionalidades como:
+
+* Cadastro de novos pacientes.
+* Login e autenticação de pacientes.
+* Dashboard privado com listagem de consultas.
+* Agendamento de novas consultas.
+* Atualização de dados cadastrais do paciente.
 
 ---
 
@@ -29,54 +35,55 @@ Esta aplicação foi construída como uma SPA (Single Page Application) moderna,
 
 O projeto foi desenvolvido utilizando as seguintes tecnologias e bibliotecas:
 
-* **[React](https://react.dev/)**: Biblioteca para construção da interface de usuário.
-* **[TypeScript](https://www.typescriptlang.org/)**: Superset do JavaScript que adiciona tipagem estática ao código.
-* **[Vite](https://vitejs.dev/)**: Ferramenta de build para um desenvolvimento front-end mais rápido e otimizado.
-* **[Tailwind CSS](https://tailwindcss.com/)**: Framework de estilização utility-first para criar designs customizados de forma ágil.
-* **[React Router](https://reactrouter.com/)**: Para gerenciamento de rotas e navegação na SPA.
-* **[React Hook Form](https://react-hook-form.com/)**: Para gerenciamento e validação de formulários de maneira eficiente e performática.
-* **[JSON Server](https://github.com/typicode/json-server)**: Para simular uma API RESTful em ambiente de desenvolvimento.
+* **[React](https://react.dev/)**
+* **[TypeScript](https://www.typescriptlang.org/)**
+* **[Vite](https://vitejs.dev/)**
+* **[Tailwind CSS](https://tailwindcss.com/)**
+* **[React Router](https://reactrouter.com/)**
+* **[React Hook Form](https://react-hook-form.com/)**
+* **[Context API](https://react.dev/learn/passing-data-deeply-with-context)** (para Autenticação)
+* **[Lucide React](https://lucide.dev/)** (para Ícones)
 
 ---
 
 ### 📂 Estrutura de Pastas
 
-O projeto segue uma estrutura modular para facilitar a manutenção e escalabilidade. Os principais diretórios dentro de `/src` são:
+O projeto segue a estrutura modular abaixo, separando componentes públicos, privados e reutilizáveis.
 
-```
 /src
-├── components/       # Componentes reutilizáveis (Header, Footer, Menu)
-│   ├── Cabecalho/
-│   ├── Menu/
-│   └── Rodape/
-├── img/              # Imagens e ícones utilizados no projeto
-├── routes/           # Componentes que representam as páginas da aplicação
-│   ├── Ajuda/
-│   ├── Cadastro/
-│   ├── ClienteDetalhe/
-│   ├── Error/
-│   ├── FaleConosco/
-│   ├── Home/
-│   ├── Login/
-│   └── Participantes/
-├── types/            # Definições de tipos do TypeScript
-└── main.tsx          # Ponto de entrada da aplicação e configuração das rotas
-```
-
+├── components/ # Componentes reutilizáveis
+│ ├── Cabecalho/ # Header público
+│ ├── Menu/
+│ ├── PacienteComponents/ # Componentes da área privada (Sidebar, Header "Bem-vindo")
+│ ├── Rodape/
+│ └── TituloSecao/
+├── img/ # Imagens e ícones
+├── routes/
+│ ├── Error/ # Página de Erro 404
+│ └── Layouts/
+│ ├── Hook/ # Hook (useAuth.tsx)
+│ ├── PrivateLayout/ # Telas que exigem login
+│ │ ├── LayoutPrivado/
+│ │ ├── PacienteRoutes/ (Consulta, Configuracoes, PaginaInicial)
+│ │ └── RotasPrivadas/
+│ ├── PublicLayout/ # Telas públicas (Home, Login, Cadastro, Ajuda, etc.)
+│ └── TemporaryBox/ # Contexto de Autenticação (AuthProvider.tsx)
+├── types/ # Definições de tipos (TypeScript)
+└── main.tsx # Ponto de entrada e configuração das rotas
 ---
 
 ### ▶️ Como Rodar o Projeto
 
-Para executar este projeto, você precisará de dois terminais rodando simultaneamente (um para o front-end e outro para o back-end simulado).
+A aplicação está conectada a um back-end Java hospedado na nuvem. Você **não** precisa rodar um back-end localmente.
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/seu-usuario/reabilita-mais.git](https://github.com/seu-usuario/reabilita-mais.git)
+    git clone [https://github.com/Challenge-2025/Front-end-Design-Engineering.git](https://github.com/Challenge-2025/Front-end-Design-Engineering.git)
     ```
 
 2.  **Navegue até o diretório do projeto:**
     ```bash
-    cd reabilita-mais
+    cd Front-end-Design-Engineering/reabilita-mais
     ```
 
 3.  **Instale as dependências:**
@@ -84,26 +91,30 @@ Para executar este projeto, você precisará de dois terminais rodando simultane
     npm install
     ```
 
-4.  **Inicie o servidor de back-end (API):**
+4.  **Inicie o servidor de front-end (Aplicação React):**
+    ```bash
+    npm run dev
     ```
-    Esta é a api que esta sendo consumida
-    api: https://domain-driven-design-using-java-2sem.onrender.com/
-    ```
-    
-    
+    *A aplicação estará disponível em `http://localhost:5173` (ou outra porta indicada no terminal).*
+
+#### API (Back-end)
+
+A API Java consumida por este projeto está hospedada no Render:
+`https://domain-driven-design-using-java-2sem.onrender.com`
 
 ---
 
 ### 👥 Integrantes
 
-| Nome                  | GitHub                                      | LinkedIn                                                      |
-| --------------------- | ------------------------------------------- | ------------------------------------------------------------- |
+| Nome | GitHub | LinkedIn |
+| :--- | :--- | :--- |
 | **Pedro Ferreira Gomes** | [Ferreira2120](https://github.com/Ferreira2120) | [Pedro Ferreira](https://www.linkedin.com/in/pedro-ferreira-a762532bb) |
-| **Gabriel Bebé Silva** | [Gabriel24701](https://github.com/Gabriel24701) | [Gabriel Bebé](https://www.linkedin.com/in/gabriel-bebé-298815238)     |
+| **Gabriel Bebé Silva** | [Gabriel24701](https://github.com/Gabriel24701) | [Gabriel Bebé](https://www.linkedin.com/in/gabriel-bebé-298815238) |
 
 ---
 
 ### 🔗 Links Importantes
 
 * **Repositório GitHub:** `https://github.com/Challenge-2025/Front-end-Design-Engineering`
-* **Vídeo de Apresentação (YouTube):** `https://youtu.be/5L4xCeGQH9A`
+* **Deploy (Vercel):** `[INSERIR LINK DO VERCEL AQUI]`
+* **Vídeo de Apresentação (YouTube):** `[INSERIR LINK DO VÍDEO DA SPRINT 4 AQUI]`
