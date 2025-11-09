@@ -102,6 +102,7 @@ A aplicação está conectada a um back-end Java hospedado na nuvem. Você **nã
 A API Java consumida por este projeto está hospedada no Render:
 `https://domain-driven-design-using-java-2sem.onrender.com`
 
+
 ---
 
 ### 👥 Integrantes
@@ -116,5 +117,5 @@ A API Java consumida por este projeto está hospedada no Render:
 ### 🔗 Links Importantes
 
 * **Repositório GitHub:** `https://github.com/Challenge-2025/Front-end-Design-Engineering`
-* **Deploy (Vercel):** `[INSERIR LINK DO VERCEL AQUI]`
-* **Vídeo de Apresentação (YouTube):** `[INSERIR LINK DO VÍDEO DA SPRINT 4 AQUI]`
+* **Deploy (Vercel):** `https://reabilita-mais.vercel.app`
+* **Vídeo de Apresentação (YouTube):** `https://youtu.be/Ofj_ntFiKkg?si=GI5EKwvDsXGkh1CO`
