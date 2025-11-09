@@ -39,10 +39,10 @@ export default function Cadastro() {
         bairro: data.endereco.bairro,
         cidade: data.endereco.cidade,
         cep: data.endereco.cep,
-        idPaciente: 0, // Valor temporário, será atribuído pelo backend após cadastro
       },
       senha: data.senha,
     };
+
 
     const criarPaciente = async (body: typeof payload): Promise<TipoPaciente | null> => {
       try {

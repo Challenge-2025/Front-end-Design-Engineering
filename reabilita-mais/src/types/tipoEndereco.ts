@@ -5,5 +5,5 @@ export type TipoEndereco = {
     bairro:string;
     cidade:string;
     cep:string;
-    idPaciente:number
+    idPaciente?:number
 }
