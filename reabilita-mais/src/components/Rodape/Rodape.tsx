@@ -28,7 +28,7 @@ export default function Rodape() {
       </div>
 
       <p className="text-sm text-white/80">
-        &copy; Todos os direitos reservados - 2025. Meu App
+        &copy; Todos os direitos reservados - 2025
       </p>
 
       <div className="mt-2 flex gap-4">
