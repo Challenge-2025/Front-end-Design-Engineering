@@ -1,12 +1,35 @@
 import { useAuth } from "../../../routes/Layouts/Hook/useAuth";
+import { AlignJustify } from "lucide-react"; // Apenas o Hamburger
 
-export default function CabecalhoDeAltenticidade(){
-    const { paciente } = useAuth();
+type TopbarProps = {
+  toggleSidebar: () => void;
+};
 
-    return(
-        <div className="h-[10vh] w-[100%] flex items-center p-[1rem] border-t border-white/10 hover:bg-white/5 transition-colors rounded-3xl shadow-2xl border border-white/20">
-        <p className="text-[#D9D9D9] font-bold text-[1.3rem]">Bem-vindo(a), {paciente?.nomeCompleto}</p>
-        
-        </div>
-    );
+export default function CabecalhoDeAltenticidade({
+  toggleSidebar,
+}: TopbarProps) {
+  const { paciente } = useAuth();
+
+  return (
+    <div
+      className="h-20 w-full flex items-center justify-between p-4 md:p-6 
+                 border-b border-white/20 bg-white/5 shadow-lg 
+                 sticky top-0 z-10" // z-10 (atrás da sidebar)
+    >
+      <div className="flex items-center gap-4">
+        {/* CORREÇÃO: Este é SOMENTE o botão de ABRIR (Hamburger) */}
+        <button
+          onClick={toggleSidebar}
+          className="p-2 rounded-lg text-white hover:bg-white/10 lg:hidden" // Só aparece no mobile
+          aria-label="Abrir menu"
+        >
+          <AlignJustify size={24} />
+        </button>
+
+        <p className="text-[#D9D9D9] font-bold text-lg md:text-xl">
+          Bem-vindo(a), {paciente?.nomeCompleto.split(" ")[0]}
+        </p>
+      </div>
+    </div>
+  );
 }

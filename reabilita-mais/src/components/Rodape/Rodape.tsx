@@ -20,7 +20,7 @@ export default function Rodape() {
         <span className="font-bold text-lg tracking-wide">Reabilita+</span>
       </div>
       <p className="text-sm text-white/80">
-        &copy; Todos os direitos reservados - 2025. Meu App
+        &copy; Todos os direitos reservados - 2025
       </p>
       <div className="mt-2 flex gap-4">
         <a

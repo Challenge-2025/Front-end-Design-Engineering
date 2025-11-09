@@ -66,20 +66,24 @@ export default function Configuracoes() {
   };
 
   return (
-    <div className="w-full flex flex-col items-center text-white p-6 ">
+    <div className="w-full flex flex-col items-center text-white p-4 md:p-6">
       <h2 className="text-2xl font-bold mb-6">Editar Dados</h2>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-2 gap-4 w-full max-w-[600px] bg-white/10
+        /* * MUDANÇA AQUI: Trocado 'grid-cols-2' por 'grid-cols-1 md:grid-cols-2'
+         * Isso força 1 coluna no mobile e 2 colunas no desktop.
+        */
+        className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-[800px] bg-white/10
           backdrop-blur-xl
-          p-4 sm:p-8 md:p-10 lg:p-12 xl:p-14
+          p-4 sm:p-8
           rounded-3xl
           shadow-2xl
           border border-white/20
           transition-all duration-300"
       >
-        <div>
+        {/* MUDANÇA AQUI: Trocado 'col-span-1' por 'col-span-1 md:col-span-1' para clareza */}
+        <div className="col-span-1 md:col-span-1">
           <label>Nome completo</label>
           <input
             {...register("nomeCompleto")}
@@ -87,20 +91,20 @@ export default function Configuracoes() {
           />
         </div>
 
-        <div className="col-span-2">
+        {/* MUDANÇA AQUI: Trocado 'col-span-2' por 'col-span-1 md:col-span-2' */}
+        <div className="col-span-1 md:col-span-2">
           <label>CPF</label>
           <input
             {...register("cpf")}
-            className="w-full p-2 rounded-lg bg-white/20 border border-white/30 text-gray-300 cursor-not-allowed"
+            className="w-full p-2 rounded-lg bg-white/20 border border-white/30 text-gray-400 cursor-not-allowed"
             readOnly
           />
-          <p className="text-[0.7rem] text-[#a00000]">
-            ⚠️ Não é possível editar o CPF, pois é um identificador único. Entre
-            em contato com o nosso suporte para solicitar a alteração.
+          <p className="text-xs text-red-400 mt-1">
+            ⚠️ Não é possível editar o CPF. Entre em contato com o suporte.
           </p>
         </div>
 
-        <div>
+        <div className="col-span-1 md:col-span-1">
           <label>E-mail</label>
           <input
             type="email"
@@ -109,7 +113,7 @@ export default function Configuracoes() {
           />
         </div>
 
-        <div>
+        <div className="col-span-1 md:col-span-1">
           <label>Telefone</label>
           <input
             {...register("telefone")}
@@ -117,7 +121,7 @@ export default function Configuracoes() {
           />
         </div>
 
-        <div>
+        <div className="col-span-1 md:col-span-1">
           <label>Data de nascimento</label>
           <input
             type="date"
@@ -126,7 +130,7 @@ export default function Configuracoes() {
           />
         </div>
 
-        <div>
+        <div className="col-span-1 md:col-span-1">
           <label>Possui deficiência?</label>
           <select
             {...register("pdc")}
@@ -139,42 +143,42 @@ export default function Configuracoes() {
         </div>
 
         {/* Endereço */}
-        <div>
+        <div className="col-span-1 md:col-span-1">
           <label>CEP</label>
           <input
             {...register("endereco.cep")}
             className="w-full p-2 rounded-lg bg-white/20 border border-white/30"
           />
         </div>
-        <div>
+        <div className="col-span-1 md:col-span-1">
           <label>Logradouro</label>
           <input
             {...register("endereco.logradouro")}
             className="w-full p-2 rounded-lg bg-white/20 border border-white/30"
           />
         </div>
-        <div>
+        <div className="col-span-1 md:col-span-1">
           <label>Número</label>
           <input
             {...register("endereco.numeroLogradouro")}
             className="w-full p-2 rounded-lg bg-white/20 border border-white/30"
           />
         </div>
-        <div>
+        <div className="col-span-1 md:col-span-1">
           <label>Complemento</label>
           <input
             {...register("endereco.complemento")}
             className="w-full p-2 rounded-lg bg-white/20 border border-white/30"
           />
         </div>
-        <div>
+        <div className="col-span-1 md:col-span-1">
           <label>Bairro</label>
           <input
             {...register("endereco.bairro")}
             className="w-full p-2 rounded-lg bg-white/20 border border-white/30"
           />
         </div>
-        <div>
+        <div className="col-span-1 md:col-span-1">
           <label>Cidade</label>
           <input
             {...register("endereco.cidade")}
@@ -183,20 +187,21 @@ export default function Configuracoes() {
         </div>
 
         {/* Senha */}
-        <div>
-          <label>Senha</label>
+        <div className="col-span-1 md:col-span-2">
+          <label>Senha (Obrigatória para salvar)</label>
           <input
             type="password"
             {...register("senha")}
+            placeholder="Digite sua senha para confirmar"
             className="w-full p-2 rounded-lg bg-white/20 border border-white/30"
           />
         </div>
 
-        <div className="col-span-2 mt-4">
+        <div className="col-span-1 md:col-span-2 mt-4">
           <button
             type="submit"
             disabled={loading}
-            className={`w-full flex justify-center items-center gap-2 py-2 rounded-lg font-semibold transition-all duration-300 ${
+            className={`w-full flex justify-center items-center gap-2 py-3 rounded-lg font-semibold transition-all duration-300 ${
               loading
                 ? "bg-gray-400 cursor-not-allowed"
                 : "bg-purple-600/80 hover:bg-purple-700"
